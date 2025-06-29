@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  FaBrain, FaRobot, FaCode,FaGraduationCap, FaProjectDiagram,FaEnvelope,FaLinkedin,FaGithub,FaDownload,FaMicrophone,FaPaperPlane,FaReact,FaNodeJs,FaPython,FaAws,FaDocker,FaDatabase,FaBars,FaTimes,FaLightbulb,FaRocket,FaShieldAlt,FaChartLine,FaCloudUploadAlt,FaMagic,FaEye,FaHeart,FaMapMarkerAlt,FaPhone,FaCoffee,FaUsers,FaTrophy,FaStar,FaFire,FaLock,FaMicrochip,FaAtom
+  FaBrain,FaMobileAlt,FaCertificate,FaCloud,FaCodeBranch,FaUniversity,FaGlobe,FaCogs, FaRobot, FaCode, FaProjectDiagram,FaEnvelope,FaLinkedin,FaGithub,FaDownload,FaPaperPlane,FaReact,FaNodeJs,FaPython,FaAws,FaDocker,FaBars,FaTimes,FaLightbulb,FaRocket,FaMagic,FaEye,FaPhone,FaCoffee,FaUsers,FaTrophy,FaStar,FaFire,FaMicrochip,
 } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiTensorflow, SiKubernetes, SiOpenai, SiGoogle } from 'react-icons/si';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { SiMongodb, SiTensorflow,  } from 'react-icons/si';
 import '../components/home.scss'
 import emailjs from 'emailjs-com';
+
 
 const AdvancedPortfolio = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -29,7 +29,6 @@ const AdvancedPortfolio = () => {
   const neuralNetworkRef = useRef(null);
   const chatEndRef = useRef(null);
 
-  const [isLightMode, setIsLightMode] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -445,6 +444,9 @@ const AdvancedPortfolio = () => {
 
 
 
+
+const [showImageModal, setShowImageModal] = useState(false);
+const [currentImage, setCurrentImage] = useState('');
   
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -503,7 +505,7 @@ const AdvancedPortfolio = () => {
 
   
 
-  // Enhanced AI Chat with multiple personalities
+  // AI Chat 
   const processGeminiRequest = async (input) => {
     if (!input.trim()) return;
     
@@ -540,6 +542,106 @@ const AdvancedPortfolio = () => {
     try {
       const fullApiUrl = `${apiUrl}?key=${apiKey}`;
       
+      // Enhanced comprehensive prompt with all portfolio information
+      const comprehensivePrompt = `You are an AI assistant representing Dhia Shayeb, a Senior Full-Stack Engineer. Answer questions ONLY about Dhia based on the following comprehensive information. Be professional, technical, and engaging to showcase his expertise.
+
+  PERSONAL & PROFESSIONAL BACKGROUND:
+  - Name: Dhia Shayeb
+  - Role: Senior Full-Stack Engineer 
+  - Philosophy: "I solve problems through code, regardless of platform or language"
+  - Approach: Combines rigorous computer science fundamentals with practical implementation skills
+
+  TECHNICAL EXPERTISE:
+  Full-Stack Versatility:
+  - Web Development: MERN Stack (MongoDB, Express, React, Node.js), MEAN Stack, Laravel, .NET
+  - Mobile Development: Flutter for cross-platform applications
+  - System Programming: Python, Java
+  - Frontend: Next.js (96% proficiency), React, modern JavaScript
+  - Backend: Node.js, Express, API development
+  - Databases: MongoDB (89% proficiency), SQL databases
+  - Cloud & DevOps: AWS (87% proficiency), Docker (85% proficiency), Kubernetes
+  - AI/ML: Python & AI/ML (91% proficiency), TensorFlow (83% proficiency)
+  - Architecture: Microservices (90% proficiency)
+
+  PROFESSIONAL EXPERIENCE:
+  - Bright Soft: Startup prototype development
+  - Tunisie Telecom: Enterprise-scale solutions
+  - Remote collaboration across multiple timezones
+  - Agile development environments
+  - Team leadership experience
+
+  MAJOR PROJECTS:
+
+  1. Automated DevOps Pipeline:
+  - Complete CI/CD implementation for SpringBoot applications
+  - 18 distinct pipeline stages ensuring code quality, security, and deployment reliability
+  - Technologies: Jenkins, Docker, SpringBoot, Nexus, SonarQube, JUnit, Grafana, Prometheus, Portainer, Watchtower
+  - Metrics: <2min average pipeline duration, 100% success rate, 100% test coverage enforcement
+  - Features: Automated rollback capabilities, comprehensive monitoring, security scanning at every stage
+
+  2. Smart Wheelchair Voice Assistant:
+  - Arduino-based assistive technology for mobility
+  - Voice-controlled wheelchair system with Windows tablet integration
+  - Features: Voice recognition, emergency calls with GPS, health monitoring, smart home integration, PC control
+  - Technologies: Arduino, Python, Bluetooth, Voice Recognition, IoT, Windows API
+  - Impact: Designed for patients with mobility challenges using user-centered approach
+
+  3. SkillSync AI Learning Platform:
+  - MERN Stack educational platform with Gemini AI integration
+  - Features: AI therapeutic assistant, real-time translation (10+ languages), course generation, voice-enabled PDF processing, smart scheduling
+  - Technologies: React, Node.js, MongoDB, Express, Gemini API, WebSocket, JWT, AWS
+  - Capabilities: Document translation, educational resource finder, 24/7 AI chatbot, personalized learning paths
+
+  TECHNICAL SKILLS MATRIX:
+  - MERN Stack: 94% proficiency
+  - MEAN Stack: 90% proficiency  
+  - Next.js: 96% proficiency
+  - Flutter: 88% proficiency
+  - Python & AI/ML: 91% proficiency
+  - MongoDB & SQL: 89% proficiency
+  - AWS & Cloud: 87% proficiency
+  - Docker & K8s: 85% proficiency
+  - TensorFlow: 83% proficiency
+  - Microservices: 90% proficiency
+
+  CERTIFICATIONS & EXPERTISE:
+  - Scrum Fundamentals Certified (2024): Agile methodology, sprint planning, project management
+  - Microservices Architecture Specialist (2024): Distributed systems, API Gateway, service discovery, Docker, security
+  - Full-Stack Development Expert: Modern web technologies, React, Node.js, APIs, DevOps
+  - Cloud Integration Proficient: Containerization, CI/CD pipelines, Kubernetes, configuration management
+
+  PROFESSIONAL RECOGNITION:
+  - Code Quality Focus: Clean, documented code following industry standards
+  - Project Success: 100% completion rate on microservices projects
+  - Technical Innovation: Implementation of modern architectural patterns
+  - Problem Solving: Analytical approach to complex requirements
+
+  DEVELOPMENT APPROACH:
+  - Platform agnostic: Web, mobile, desktop, and cloud solutions
+  - Clean architecture and maintainable code prioritization
+  - Experience from startup prototypes to enterprise solutions
+  - Agile environments and continuous learning
+  - Global delivery and remote collaboration
+
+  CONTACT INFORMATION:
+  - Email: dhiashayeb6@gmail.com
+  - LinkedIn: linkedin.com/in/dhia-shayeb
+  - GitHub: github.com/ChaiebDhia
+  - Available for: Freelance and full-time opportunities
+  - Response time: Within 24 hours
+
+  IMPORTANT GUIDELINES:
+  - Only answer questions about Dhia Shayeb and his professional profile
+  - If asked about something not in this information, respond professionally: "That's an excellent area I'm actively exploring and would be excited to learn more about in the right opportunity"
+  - Keep responses professional, technical, and engaging
+  - Highlight relevant expertise based on the question
+  - Show enthusiasm for innovation and problem-solving
+  - Emphasize adaptability and continuous learning
+
+  User Question: ${input}
+
+  Provide a professional, engaging response that showcases Dhia's expertise and would impress potential employers or clients.`;
+      
       const response = await fetch(fullApiUrl, {
         method: 'POST',
         headers: { 
@@ -548,9 +650,7 @@ const AdvancedPortfolio = () => {
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text: `You are Dhia Shayeb, an innovative Senior Full-Stack Engineer and AI Solutions Architect. 
-              Answer this question about Dhia: ${input}
-              Keep responses professional, technical, and informative.`
+              text: comprehensivePrompt
             }]
           }]
         })
@@ -615,63 +715,165 @@ const AdvancedPortfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "NeuroCommerce AI Platform",
-      subtitle: "Next-Gen E-Commerce with AI Brain",
-      description: "Revolutionary e-commerce platform powered by advanced AI for personalized shopping experiences, predictive analytics, and intelligent inventory management.",
-      detailedDescription: "Built with microservices architecture, featuring real-time recommendation engine, computer vision for product search, and natural language processing for customer support automation.",
-      tech: ["React", "Node.js", "Python", "TensorFlow", "MongoDB", "AWS", "Redis"],
+      title: "Automated DevOps Pipeline",
+      subtitle: "End-to-End CI/CD Implementation for SpringBoot",
+      description: "Designed and implemented a complete CI/CD pipeline for a SpringBoot application following DevOps principles. The pipeline incorporates 18 distinct stages that ensure code quality, security, and deployment reliability.",
+      detailedDescription: `
+        Designed and implemented a complete CI/CD pipeline for a SpringBoot application following DevOps principles. The pipeline incorporates:
+    
+        The pipeline architecture features 18 distinct stages that ensure code quality, security, and deployment reliability:
+        
+        - Environment Preparation: Tool installation and configuration
+        - Source Code Management: Git checkout with branch validation
+        - Build Process: Maven clean, compile, and package with dependency resolution
+        - Quality Assurance: JUnit testing with JACOCO code coverage reporting
+        - Static Analysis: SonarQube scanning with quality gate enforcement
+        - Artifact Management: Nexus repository for versioned artifact storage
+        - Containerization: Docker image creation and validation
+        - Deployment: Automated rollout to containerized environments
+        - Monitoring: Portainer for container management and Watchtower for auto-updates
+        - Notification: Email alerts for pipeline status changes
+        
+        The solution demonstrates full automation from code commit to production deployment, with:
+        - Average pipeline execution time under 2 minutes
+        - 100% test coverage enforcement
+        - Static code analysis with zero critical issues
+        - Automated rollback capabilities
+        - Comprehensive monitoring through Grafana dashboards
+        
+        Technical highlights include:
+        - Declarative Jenkins pipeline with parallel stage execution
+        - Infrastructure-as-Code principles for environment consistency
+        - Immutable artifacts through Nexus repository
+        - Container orchestration with health checks
+        - Security scanning at every pipeline stage
+      `,
+      tech: ["Jenkins", "Docker", "SpringBoot", "Nexus", "SonarQube", "JUnit", "Grafana", "Prometheus", "Portainer", "Watchtower"],
       github: "#",
       live: "#",
-      category: "AI/ML",
+      category: "DevOps",
       status: "Production",
       metrics: {
-        users: "10K+",
-        performance: "99.9%",
-        aiAccuracy: "94%"
+        "Pipeline Stages": "18",
+        "Avg Duration": "<2min",
+        "Success Rate": "100%"
       },
-      features: ["AI Recommendations", "Visual Search", "Chatbot", "Predictive Analytics"]
+      features: [
+        "Automated CI/CD Pipeline", 
+        "Code Quality Gates", 
+        "Container Orchestration", 
+        "Artifact Versioning",
+        "Auto-healing Infrastructure",
+        "Real-time Monitoring"
+      ],
+      image: "/images/DevOps.png",
+      viewImageButton: true
     },
     {
       id: 2,
-      title: "RealTime Analytics Engine",
-      subtitle: "Data Intelligence at Light Speed",
-      description: "High-performance analytics dashboard processing millions of events per second with real-time visualizations and AI-powered insights.",
-      detailedDescription: "Microservices-based platform using Apache Kafka, Redis, and custom ML models for real-time pattern recognition and anomaly detection.",
-      tech: ["React", "D3.js", "Node.js", "Kafka", "Redis", "Docker", "Kubernetes"],
+      title: "Smart Wheelchair Voice Assistant",
+      subtitle: "Arduino-based Assistive Technology for Mobility",
+      description: "Developed an innovative voice-controlled wheelchair system combining Arduino robotics with a Windows tablet voice assistant to help patients control their environment autonomously.",
+      detailedDescription: `
+        This project combines an Arduino-based robot car simulating a 4-wheeled wheelchair with a voice assistant application, allowing patients to intuitively control:
+        
+        - The wheelchair movement through voice commands
+        - Smart home devices (lights, appliances)
+        - Their personal computer
+        
+        Key Features:
+        - Voice recognition system for hands-free control
+        - Emergency call functionality with GPS location sharing
+        - Health monitoring with automated reports to doctors
+        - Home automation integration
+        - PC control capabilities
+        
+        Technical Implementation:
+        - Arduino Uno with motor shield and ultrasonic sensors
+        - Bluetooth HC-06 module for wireless communication
+        - Python-based voice assistant on Windows tablet
+        - Google Maps integration for emergency location
+        - Email notification system for alerts
+        
+        The system was designed with a user-centered approach to ensure accessibility and ease of use for patients with mobility challenges.
+      `,
+      tech: ["Arduino", "Python", "Bluetooth", "Voice Recognition", "IoT", "Windows API"],
       github: "#",
       live: "#",
-      category: "Data Engineering",
-      status: "Production",
+      category: "Assistive Technology",
+      status: "Prototype",
       metrics: {
-        events: "1M+/sec",
-        latency: "<50ms",
-        uptime: "99.99%"
+        "Components": "8+",
+        "Response Time": "<1s",
+        "Commands": "20+"
       },
-      features: ["Real-time Processing", "ML Insights", "Custom Dashboards", "API Gateway"]
+      features: [
+        "Voice Control", 
+        "Emergency Alert System", 
+        "Health Monitoring", 
+        "Smart Home Integration",
+        "PC Control",
+        "User-Friendly Interface"
+      ],
+      image: "/images/VA.png", // Update with your image path
+      viewImageButton: true
     },
     {
       id: 3,
-      title: "Quantum CMS Intelligence",
-      subtitle: "Content Creation Reimagined",
-      description: "AI-powered content management system with automated content generation, SEO optimization, and multi-language support.",
-      detailedDescription: "Next.js based CMS with integrated OpenAI GPT models, automated image optimization, and intelligent content scheduling.",
-      tech: ["Next.js", "PostgreSQL", "OpenAI API", "AWS S3", "Stripe", "Vercel"],
+      title: "SkillSync AI Learning Platform",
+      subtitle: "MERN Stack Educational Platform with Gemini AI Integration",
+      description: "Created an innovative learning platform using the MERN stack with advanced AI features including real-time translation, course generation, and therapeutic assistance.",
+      detailedDescription: `
+        SkillSync is a comprehensive educational platform that leverages cutting-edge AI technologies to enhance learning experiences:
+        
+        Core Features:
+        - AI Therapeutic Assistant: Provides mental health support and guidance
+        - Real-time Translation: Translates spoken and written content instantly
+        - Document Translation: Processes uploaded materials in multiple languages
+        - Course Generator: Creates customized learning paths based on user needs
+        - Educational Resource Finder: Locates relevant materials for any topic
+        - AI Chatbot: 24/7 learning assistance and Q&A
+        - Voice-Enabled PDF Processing: Summarizes and interacts with course materials
+        - Smart Scheduling: Creates personalized learning schedules based on availability
+        - Roadmap Generator: Develops step-by-step learning plans
+        
+        Technical Stack:
+        - MERN Architecture (MongoDB, Express, React, Node.js)
+        - Gemini AI API for advanced NLP capabilities
+        - WebSocket for real-time communication
+        - JWT for secure authentication
+        - AWS S3 for document storage
+        
+        The platform was designed to break language barriers and provide personalized, accessible education for all users.
+      `,
+      tech: ["React", "Node.js", "MongoDB", "Express", "Gemini API", "WebSocket", "JWT", "AWS"],
       github: "#",
       live: "#",
-      category: "Content Management",
+      category: "AI Education",
       status: "Beta",
       metrics: {
-        content: "50K+",
-        languages: "12",
-        seoScore: "98%"
+        "AI Features": "8+",
+        "Languages": "10+",
+        "Response Time": "<2s"
       },
-      features: ["Auto Content", "SEO AI", "Multi-language", "Analytics"]
+      features: [
+        "Real-time Translation", 
+        "AI Course Generation", 
+        "Therapeutic Assistant", 
+        "Voice Interaction",
+        "Smart Scheduling",
+        "Document Processing"
+      ],
+      image: "/images/SkillSync.png", // Update with your image path
+      viewImageButton: true
     }
   ];
 
   const skills = [
-    { name: "React & Next.js", icon: <FaReact />, level: 96, category: "Frontend" },
-    { name: "Node.js & Express", icon: <FaNodeJs />, level: 94, category: "Backend" },
+    { name: "MERN Stack", icon: <SiMongodb />, level: 94, category: "Full Stack" },
+    { name: "MEAN Stack", icon: <FaCode />, level: 90, category: "Full Stack" },
+    { name: "Next.js", icon: <FaReact />, level: 96, category: "Frontend" },
+    { name: "Flutter", icon: <FaMobileAlt />, level: 88, category: "Mobile" },
     { name: "Python & AI/ML", icon: <FaPython />, level: 91, category: "AI/ML" },
     { name: "MongoDB & SQL", icon: <SiMongodb />, level: 89, category: "Database" },
     { name: "AWS & Cloud", icon: <FaAws />, level: 87, category: "Cloud" },
@@ -716,7 +918,7 @@ const AdvancedPortfolio = () => {
         <div className="nav-brand">
           <FaMicrochip className="brand-icon" />
           <span className="brand-text">Dhia Shayeb</span>
-          <div className="brand-subtitle">Software Engineer</div>
+          <div className="brand-subtitle">Full-Stack Engineer</div>
         </div>
           
           <div className={`nav-menu ${isNavOpen ? 'active' : ''}`}>
@@ -732,8 +934,8 @@ const AdvancedPortfolio = () => {
             <a href="#skills" onClick={() => scrollToSection('skills')} className={activeSection === 'skills' ? 'active' : ''}>
               <FaCode /> Skills
             </a>
-            <a href="#achievements" onClick={() => scrollToSection('achievements')} className={activeSection === 'achievements' ? 'active' : ''}>
-              <FaTrophy /> Achievements
+            <a href="#expertise" onClick={() => scrollToSection('expertise')} className={activeSection === 'expertise' ? 'active' : ''}>
+              <FaLightbulb /> Expertise
             </a>
             <a href="#contact" onClick={() => scrollToSection('contact')} className={activeSection === 'contact' ? 'active' : ''}>
               <FaEnvelope /> Contact
@@ -749,84 +951,96 @@ const AdvancedPortfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="hero-section">
-        <canvas ref={neuralNetworkRef} className="neural-network-canvas" />
-        
-        <div className="hero-content">
-          <div className="hero-text">
-            <div className="hero-greeting">
-              <FaRocket className="greeting-icon" />
-              <span>Welcome to the Future</span>
-            </div>
-            
-            <div className="glitch-title">
-              <span className="title-main">DHIA</span>
-              <div className="title-divider">/</div>
-              <span className="title-accent">SHAYEB</span>
-            </div>
-            
-            <div className="subtitle-container">
-              <div className="loading-bar"></div>
-              <h2 className="hero-subtitle">
-                <FaBrain className="subtitle-icon" />
-                SENIOR AI SOLUTIONS ARCHITECT
-              </h2>
-            </div>
-            
-            <p className="hero-description">
-              Pioneering the future of technology through innovative AI integration, 
-              scalable architecture, and next-generation web solutions. 
-              <span className="highlight">Building tomorrow's applications today.</span>
-            </p>
-            
-            <div className="hero-cta">
-              <a 
-                href="https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID" 
-                className="cta-button primary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaDownload className="btn-icon" />
-                Download Resume
-              </a>
-              <button className="cta-button secondary" onClick={() => setIsChatOpen(true)}>
-                <FaRobot className="btn-icon" />
-                Chat with AI Assistant
-              </button>
-            </div>
-          </div>
-          
-          <div className="hero-stats">
-            <div className="stat-item">
-              <div className="stat-number">6+</div>
-              <div className="stat-label">Years Experience</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">50+</div>
-              <div className="stat-label">Projects Delivered</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">99.9%</div>
-              <div className="stat-label">Uptime Record</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">15+</div>
-              <div className="stat-label">AI Integrations</div>
-            </div>
-          </div>
+<section id="home" className="hero-section">
+  <canvas ref={neuralNetworkRef} className="neural-network-canvas" />
+  
+  <div className="hero-content">
+    <div className="hero-text-container">
+      <div className="hero-text">
+        <div className="hero-greeting">
+          <FaRocket className="greeting-icon" />
+          <span>Welcome to the Future</span>
         </div>
-      </section>
+        
+        <div className="glitch-title">
+          <span className="title-main">DHIA</span>
+          <div className="title-divider">/</div>
+          <span className="title-accent">SHAYEB</span>
+        </div>
+        
+        <div className="subtitle-container">
+          <div className="loading-bar"></div>
+          <h2 className="hero-subtitle">
+            <FaBrain className="subtitle-icon" />
+            Full-Stack Engineer, AI/ML Solutions
+          </h2>
+        </div>
+        
+        <p className="hero-description">
+          Pioneering the future of technology through innovative AI integration, 
+          scalable architecture, and next-generation web solutions. 
+          <span className="highlight">Building tomorrow's applications today.</span>
+        </p>
+        
+        <div className="hero-cta">
+          <a 
+            href="https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID" 
+            className="cta-button primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaDownload className="btn-icon" />
+            Download Resume
+          </a>
+          <button className="cta-button secondary" onClick={() => setIsChatOpen(true)}>
+            <FaRobot className="btn-icon" />
+            Chat with AI Assistant
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    {/* Executive Portrait - Positioned responsively */}
+    <div className="executive-portrait-container">
+      <div className="executive-portrait">
+        <img 
+          src="/images/DhiaShayeb.png" 
+          alt="Dhia Shayeb - Technology Executive" 
+          className="portrait-image"
+        />
+      </div>
+    </div>
+    
+    <div className="hero-stats">
+      <div className="stat-item">
+        <div className="stat-number">6+</div>
+        <div className="stat-label">Years Experience</div>
+      </div>
+      <div className="stat-item">
+        <div className="stat-number">50+</div>
+        <div className="stat-label">Projects Delivered</div>
+      </div>
+      <div className="stat-item">
+        <div className="stat-number">99.9%</div>
+        <div className="stat-label">Uptime Record</div>
+      </div>
+      <div className="stat-item">
+        <div className="stat-number">15+</div>
+        <div className="stat-label">AI Integrations</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      {/* About Section */}
       <section id="about" className="about-section">
         <div className="section-content">
           <div className="section-header">
             <div className="section-title">
               <FaBrain className="section-icon" />
-              <h2>NEURAL PROFILE</h2>
+              <h2>TECHNICAL ARCHITECT</h2>
             </div>
             <div className="section-subtitle">
-              Decoding the mind behind the code
+              Engineering solutions across the digital spectrum
             </div>
           </div>
           
@@ -835,70 +1049,167 @@ const AdvancedPortfolio = () => {
               <div className="bio-section">
                 <h3 className="bio-title">
                   <FaLightbulb className="bio-icon" />
-                  Innovation Matrix
+                  Technical Philosophy
                 </h3>
                 <p className="bio-content">
-                  Senior Full-Stack Engineer with 6+ years of experience architecting next-generation 
-                  applications. Specialized in AI integration, microservices architecture, and 
-                  high-performance web solutions. Led cross-functional teams to deliver 50+ 
-                  successful projects with 99.9% uptime records.
+                  I solve problems through code, regardless of platform or language. With expertise spanning <strong>web development (MERN/MEAN, Laravel, .NET)</strong>, <strong>mobile applications (Flutter)</strong>, and <strong>system programming (Python, Java)</strong>, I adapt my toolkit to project requirements. My approach combines rigorous computer science fundamentals with practical implementation skills to deliver robust, scalable solutions.
                 </p>
               </div>
               
               <div className="bio-section">
                 <h3 className="bio-title">
                   <FaRocket className="bio-icon" />
-                  Mission Statement
+                  Development Approach
                 </h3>
                 <p className="bio-content">
-                  Bridging the gap between cutting-edge AI technology and practical business solutions. 
-                  Passionate about creating scalable, intelligent systems that solve real-world problems 
-                  while pushing the boundaries of what's possible with modern web technologies.
+                  Whether building responsive web interfaces, cross-platform mobile apps, or backend systems, I prioritize clean architecture and maintainable code. My experience ranges from startup prototypes at Bright Soft to enterprise solutions at Tunisie Telecom, giving me perspective on projects of all scales. I thrive in agile environments and continuously expand my technical repertoire to meet evolving challenges.
                 </p>
               </div>
               
               <div className="about-highlights">
-                <div className="highlight-item">
-                  <FaShieldAlt className="highlight-icon" />
-                  <div className="highlight-content">
-                    <h4>Security First</h4>
-                    <p>Enterprise-grade security implementations</p>
-                  </div>
-                </div>
-                <div className="highlight-item">
-                  <FaChartLine className="highlight-icon" />
-                  <div className="highlight-content">
-                    <h4>Performance Optimized</h4>
-                    <p>Sub-second load times, scalable architecture</p>
-                  </div>
-                </div>
-                <div className="highlight-item">
-                  <FaCloudUploadAlt className="highlight-icon" />
-                  <div className="highlight-content">
-                    <h4>Cloud Native</h4>
-                    <p>AWS, Azure, GCP certified solutions</p>
-                  </div>
-                </div>
+        <div className="highlight-grid">
+          <div className="highlight-item">
+            <div className="highlight-icon-container">
+              <FaCode className="highlight-icon" />
+            </div>
+            <div className="highlight-content">
+              <h4>Full-Stack Versatility</h4>
+              <p>Frontend to DevOps with multiple tech stacks</p>
+            </div>
+          </div>
+          <div className="highlight-item">
+            <div className="highlight-icon-container">
+              <FaMobileAlt className="highlight-icon" />
+            </div>
+            <div className="highlight-content">
+              <h4>Platform Agnostic</h4>
+              <p>Web, mobile, desktop, and cloud solutions</p>
+            </div>
+          </div>
+          <div className="highlight-item">
+            <div className="highlight-icon-container">
+              <FaGlobe className="highlight-icon" />
+            </div>
+            <div className="highlight-content">
+              <h4>Global Delivery</h4>
+              <p>Remote collaboration across timezones</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Education section with improved spacing */}
+      <div className="bio-section education-section">
+        <div className="section-divider"></div>
+        
+        <h3 className="bio-title">
+          <FaUniversity className="bio-icon" />
+          Education & Technical Foundation
+        </h3>
+        
+        <div className="education-timeline">
+          {/* ESPRIT */}
+          <div className="education-item">
+            <div className="education-header">
+              <div className="education-icon">
+                <FaMicrochip />
               </div>
+              <div className="education-title">
+                <span className="institution">ESPRIT - Private Higher School of Engineering and Technology</span>
+                <span className="degree">Engineer's Degree, Information Technology</span>
+              </div>
+              <div className="education-period">2024 - 2026</div>
+            </div>
+            <div className="education-details">
+              <div className="education-tag">
+                <span>Specialization: Web Technologies & Internet Systems (TWIN)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* ISIK */}
+          <div className="education-item">
+            <div className="education-header">
+              <div className="education-icon">
+                <FaCodeBranch />
+              </div>
+              <div className="education-title">
+                <span className="institution">Higher Institute of Computer Science of Kef</span>
+                <span className="degree">Master's Degree (Partial), Intelligent Web Applications</span>
+              </div>
+              <div className="education-period">2023 - 2024</div>
+            </div>
+            <div className="education-details">
+              <p className="transition-note">
+                Proactively transitioned academic paths after successfully completing the first year to pursue an Engineering degree at ESPRIT.
+              </p>
+            </div>
+          </div>
+
+          {/* Bachelor's */}
+          <div className="education-item">
+            <div className="education-header">
+              <div className="education-icon">
+                <FaCode />
+              </div>
+              <div className="education-title">
+                <span className="institution">Higher Institute of Computer Science of Kef</span>
+                <span className="degree">Bachelor of Engineering, Computer Science</span>
+              </div>
+              <div className="education-period">2020 - 2023</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Buttons with better spacing */}
+      <div className="cta-section">
+        <div className="cta-buttons">
+          <a href="#contact" className="cta-button primary">
+            <FaPaperPlane /> Start a Conversation
+          </a>
+          <a href="#projects" className="cta-button secondary">
+            <FaCode /> Explore My Projects
+          </a>
+        </div>
+      </div>
             </div>
             
             <div className="about-visual">
-              <div className="skill-radar">
-                <div className="radar-center">
-                  <FaAtom className="radar-icon" />
-                  <div className="radar-text">CORE</div>
+              <div className="tech-showcase">
+                {/* Central hub with rotating icon and changing text */}
+                <div className="tech-hub">
+                  <FaCogs className="hub-icon" />
+                  <div className="hub-text">TECH</div>
+                  <div className="changing-text">STACK</div>
                 </div>
-                <div className="radar-ring ring-1">
-                  <div className="skill-point frontend">Frontend</div>
-                  <div className="skill-point backend">Backend</div>
-                  <div className="skill-point ai">AI/ML</div>
-                  <div className="skill-point cloud">Cloud</div>
+
+                {/* Separate orbits for each tech category */}
+                <div className="tech-orbit frontend-orbit">
+                  <div className="tech-node">Frontend</div>
                 </div>
-                <div className="radar-ring ring-2">
-                  <div className="tech-dot react">React</div>
-                  <div className="tech-dot node">Node</div>
-                  <div className="tech-dot python">Python</div>
-                  <div className="tech-dot aws">AWS</div>
+
+                <div className="tech-orbit backend-orbit">
+                  <div className="tech-node">Backend</div>
+                </div>
+
+                <div className="tech-orbit mobile-orbit">
+                  <div className="tech-node">Mobile</div>
+                </div>
+
+                <div className="tech-orbit devops-orbit">
+                  <div className="tech-node">DevOps</div>
+                </div>
+
+                <div className="tech-orbit cloud-orbit">
+                  <div className="tech-node ai">AI/ML</div>
+                </div>
+
+                {/* Animated connection lines */}
+                <div className="connection-lines">
+                  <div className="line line-1"></div>
+                  <div className="line line-2"></div>
+                  <div className="line line-3"></div>
                 </div>
               </div>
             </div>
@@ -907,129 +1218,147 @@ const AdvancedPortfolio = () => {
       </section>
 
       {/* Projects Section */}
-      {/* Projects Section */}
-<section id="projects" className="projects-section">
-  <div className="section-content">
-    <div className="section-header">
-      <div className="section-title">
-        <FaProjectDiagram className="section-icon" />
-        <h2>DIGITAL ARSENAL</h2>
-      </div>
-      <div className="section-subtitle">
-        Breakthrough projects that redefine possibilities
-      </div>
-    </div>
-    
-    <div className="projects-container">
-      <button 
-        className="project-nav prev"
-        onClick={() => handleProjectNavigation('prev')}
-      >
-        &lt;
-      </button>
-      
-      <div className="projects-slider" style={{ transform: `translateX(-${currentProjectIndex * 100}%)` }}>
-        {projects.map((project, index) => (
-          <div 
-            key={project.id} 
-            className={`project-slide ${index === currentProjectIndex ? 'active' : ''}`}
-          >
-            <div className="project-card">
-              <div className="project-image">
-                <div className="project-overlay">
-                  <div className="project-status">
-                    <span className={`status-badge ${project.status.toLowerCase()}`}>
-                      {project.status}
-                    </span>
-                  </div>
-                  <div className="project-category">{project.category}</div>
-                </div>
-              </div>
-              
-              <div className="project-info">
-                <div className="project-header">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-subtitle">{project.subtitle}</p>
-                </div>
-                
-                <p className="project-description">{project.description}</p>
-                
-                <div className="project-tech">
-                  {project.tech.slice(0, 4).map((tech, i) => (
-                    <span key={i} className="tech-tag">{tech}</span>
-                  ))}
-                  {project.tech.length > 4 && (
-                    <span className="tech-more">+{project.tech.length - 4}</span>
-                  )}
-                </div>
-                
-                <div className="project-metrics">
-                  {Object.entries(project.metrics).map(([key, value]) => (
-                    <div key={key} className="metric-item">
-                      <div className="metric-value">{value}</div>
-                      <div className="metric-label">{key}</div>
+      <section id="projects" className="projects-section">
+        <div className="section-content">
+          <div className="section-header">
+            <div className="section-title">
+              <FaProjectDiagram className="section-icon" />
+              <h2>DIGITAL ARSENAL</h2>
+            </div>
+            <div className="section-subtitle">
+              Breakthrough projects that redefine possibilities
+            </div>
+          </div>
+          
+          <div className="projects-container">
+            <button 
+              className="project-nav prev"
+              onClick={() => handleProjectNavigation('prev')}
+            >
+              &lt;
+            </button>
+            
+            <div className="projects-slider" style={{ transform: `translateX(-${currentProjectIndex * 100}%)` }}>
+              {projects.map((project, index) => (
+                <div 
+                  key={project.id} 
+                  className={`project-slide ${index === currentProjectIndex ? 'active' : ''}`}
+                >
+                  <div className="project-card">
+                    <div className="project-image">
+                      
+                    <img 
+                    src={project.image}
+                    alt={project.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  {project.viewImageButton && (
+                    <div className="image-overlay">
+                      <button 
+                        className="view-image-btn"
+                        onClick={() => {
+                          setCurrentImage(project.image);
+                          setShowImageModal(true);
+                        }}
+                      >
+                        View Image
+                      </button>
                     </div>
-                  ))}
-                </div>
-                
-                <div className="project-actions">
-                  <button 
-                    className="project-btn primary"
-                    onClick={() => setActiveProject(activeProject === project.id ? null : project.id)}
-                  >
-                    <FaEye className="btn-icon" />
-                    {activeProject === project.id ? 'Close' : 'Explore'}
-                  </button>
-                  <button className="project-btn secondary">
-                    <FaGithub className="btn-icon" />
-                    Code
-                  </button>
-                </div>
-              </div>
-              
-              {activeProject === project.id && (
-                <div className="project-expanded">
-                  <div className="expanded-content">
-                    <h4>Technical Deep Dive</h4>
-                    <p>{project.detailedDescription}</p>
+                  )}
+                      <div className="project-overlay">
+                        <div className="project-status">
+                          <span className={`status-badge ${project.status.toLowerCase()}`}>
+                            {project.status}
+                          </span>
+                        </div>
+                        <div className="project-category">{project.category}</div>
+                      </div>
+                    </div>
                     
-                    <div className="project-features">
-                      <h5>Key Features</h5>
-                      <div className="features-grid">
-                        {project.features.map((feature, i) => (
-                          <div key={i} className="feature-item">
-                            <FaMagic className="feature-icon" />
-                            <span>{feature}</span>
+                    <div className="project-info">
+                      <div className="project-header">
+                        <h3 className="project-title">{project.title}</h3>
+                        <p className="project-subtitle">{project.subtitle}</p>
+                      </div>
+                      
+                      <p className="project-description">{project.description}</p>
+                      
+                      <div className="project-tech">
+                        {project.tech.slice(0, 4).map((tech, i) => (
+                          <span key={i} className="tech-tag">{tech}</span>
+                        ))}
+                        {project.tech.length > 4 && (
+                          <span className="tech-more">+{project.tech.length - 4}</span>
+                        )}
+                      </div>
+                      
+                      <div className="project-metrics">
+                        {Object.entries(project.metrics).map(([key, value]) => (
+                          <div key={key} className="metric-item">
+                            <div className="metric-value">{value}</div>
+                            <div className="metric-label">{key}</div>
                           </div>
                         ))}
                       </div>
-                    </div>
-                    
-                    <div className="project-stack">
-                      <h5>Full Tech Stack</h5>
-                      <div className="stack-list">
-                        {project.tech.map((tech, i) => (
-                          <span key={i} className="stack-item">{tech}</span>
-                        ))}
+                      
+                      <div className="project-actions">
+                        <button 
+                          className="project-btn primary"
+                          onClick={() => setActiveProject(activeProject === project.id ? null : project.id)}
+                        >
+                          <FaEye className="btn-icon" />
+                          {activeProject === project.id ? 'Close' : 'Explore'}
+                        </button>
+                        <button className="project-btn secondary">
+                          <FaGithub className="btn-icon" />
+                          Code
+                        </button>
                       </div>
                     </div>
+                    
+                    {activeProject === project.id && (
+                      <div className="project-expanded">
+                        <div className="expanded-content">
+                          <h4>Technical Deep Dive</h4>
+                          <p>{project.detailedDescription}</p>
+                          
+                          <div className="project-features">
+                            <h5>Key Features</h5>
+                            <div className="features-grid">
+                              {project.features.map((feature, i) => (
+                                <div key={i} className="feature-item">
+                                  <FaMagic className="feature-icon" />
+                                  <span>{feature}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          <div className="project-stack">
+                            <h5>Full Tech Stack</h5>
+                            <div className="stack-list">
+                              {project.tech.map((tech, i) => (
+                                <span key={i} className="stack-item">{tech}</span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-              )}
+              ))}
             </div>
+            
+            <button 
+              className="project-nav next"
+              onClick={() => handleProjectNavigation('next')}
+            >
+              &gt;
+            </button>
           </div>
-        ))}
-      </div>
-      
-      <button 
-        className="project-nav next"
-        onClick={() => handleProjectNavigation('next')}
-      >
-        &gt;
-      </button>
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* Skills Section */}
       <section id="skills" className="skills-section">
@@ -1074,31 +1403,219 @@ const AdvancedPortfolio = () => {
         </div>
       </section>
 
-      {/* Achievements Section */}
-      <section id="achievements" className="achievements-section">
+      {/* Expertise & Certifications Section */}
+      <section id="expertise" className="expertise-section">
         <div className="section-content">
           <div className="section-header">
             <div className="section-title">
-              <FaTrophy className="section-icon" />
-              <h2>ACHIEVEMENT UNLOCKED</h2>
+              <FaLightbulb className="section-icon" />
+              <h2>EXPERTISE MATRIX</h2>
             </div>
             <div className="section-subtitle">
-              Recognition and milestones in the digital realm
+              Professional credentials and specialized knowledge domains
             </div>
           </div>
           
-          <div className="achievements-grid">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="achievement-card">
-                <div className="achievement-icon">{achievement.icon}</div>
-                <div className="achievement-content">
-                  <h4 className="achievement-title">{achievement.title}</h4>
-                  <p className="achievement-description">{achievement.description}</p>
-                  <span className="achievement-year">{achievement.year}</span>
-                </div>
-                <div className="achievement-glow"></div>
+          <div className="expertise-grid">
+            {/* Technical Certifications Column */}
+            <div className="expertise-column">
+              <div className="column-title">
+                <FaMicrochip className="column-icon" />
+                <h3>Technical Certifications</h3>
               </div>
-            ))}
+              
+              <div className="expertise-list">
+                <div className="expertise-item">
+                  <div className="item-header">
+                    <div className="item-info">
+                      <div className="item-title">
+                        <FaCertificate className="item-icon" />
+                        <h4>Scrum Fundamentals</h4>
+                      </div>
+                      <div className="item-subtitle">Agile Methodology & Project Management</div>
+                      <div className="item-description">
+                        Certified in Scrum principles, sprint planning, and agile development practices for efficient project delivery.
+                      </div>
+                    </div>
+                    <div className="verification-badge">Certified</div>
+                  </div>
+                  <div className="item-details">
+                    <div className="detail-tags">
+                      <span className="tag">Scrum</span>
+                      <span className="tag">Agile</span>
+                      <span className="tag">Sprint Planning</span>
+                    </div>
+                    <div className="detail-year">2024</div>
+                  </div>
+                  <div className="expertise-glow"></div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Professional Expertise Column */}
+            <div className="expertise-column">
+              <div className="column-title">
+                <FaLightbulb className="column-icon" />
+                <h3>Professional Expertise</h3>
+              </div>
+              
+              <div className="expertise-list">
+                <div className="expertise-item">
+                  <div className="item-header">
+                    <div className="item-info">
+                      <div className="item-title">
+                        <FaProjectDiagram className="item-icon" />
+                        <h4>Microservices Architecture</h4>
+                      </div>
+                      <div className="item-subtitle">Distributed Systems & MSA Implementation</div>
+                      <div className="item-description">
+                        Comprehensive expertise in microservices architecture design, implementation, and deployment with modern DevOps practices.
+                      </div>
+                    </div>
+                    <div className="verification-badge">Specialist</div>
+                  </div>
+                  <div className="item-details">
+                    <div className="detail-tags">
+                      <span className="tag">API Gateway</span>
+                      <span className="tag">Service Discovery</span>
+                      <span className="tag">Docker</span>
+                      <span className="tag">Security</span>
+                    </div>
+                    <div className="detail-year">2024</div>
+                  </div>
+                  <div className="expertise-glow"></div>
+                </div>
+                
+                <div className="expertise-item">
+                  <div className="item-header">
+                    <div className="item-info">
+                      <div className="item-title">
+                        <FaGithub className="item-icon" />
+                        <h4>Full-Stack Development</h4>
+                      </div>
+                      <div className="item-subtitle">Modern Web Technologies</div>
+                      <div className="item-description">
+                        Proficient in developing end-to-end applications using modern frameworks, with focus on scalable architecture and best practices.
+                      </div>
+                    </div>
+                    <div className="verification-badge portfolio">Portfolio</div>
+                  </div>
+                  <div className="item-details">
+                    <div className="detail-tags">
+                      <span className="tag">React</span>
+                      <span className="tag">Node.js</span>
+                      <span className="tag">APIs</span>
+                      <span className="tag">DevOps</span>
+                    </div>
+                    <div className="detail-year">2024</div>
+                  </div>
+                  <div className="expertise-glow"></div>
+                </div>
+                
+                <div className="expertise-item">
+                  <div className="item-header">
+                    <div className="item-info">
+                      <div className="item-title">
+                        <FaCloud className="item-icon" />
+                        <h4>Cloud Integration</h4>
+                      </div>
+                      <div className="item-subtitle">Containerization & Deployment</div>
+                      <div className="item-description">
+                        Experience in containerizing applications, implementing CI/CD pipelines, and managing distributed system deployments.
+                      </div>
+                    </div>
+                    <div className="verification-badge">Proficient</div>
+                  </div>
+                  <div className="item-details">
+                    <div className="detail-tags">
+                      <span className="tag">Docker</span>
+                      <span className="tag">Kubernetes</span>
+                      <span className="tag">CI/CD</span>
+                      <span className="tag">Config Management</span>
+                    </div>
+                    <div className="detail-year">2024</div>
+                  </div>
+                  <div className="expertise-glow"></div>
+                </div>
+
+                <div className="expertise-item">
+                  <div className="item-header">
+                    <div className="item-info">
+                      <div className="item-title">
+                        <FaMagic className="item-icon" /> {/* Changed to magic wand for creativity */}
+                        <h4>UI/UX Development</h4>
+                      </div>
+                      <div className="item-subtitle">Design Thinking in Team Projects</div>
+                      <div className="item-description">
+                        Applied the full UX process (research → Figma prototyping → testing → iteration) in collaborative projects. Focused on user-centered design, usability testing, and seamless UI integration into functional code.
+                      </div>
+                    </div>
+                    <div className="verification-badge portfolio">Project Experience</div> {/* Changed to reflect hands-on work */}
+                  </div>
+                  <div className="item-details">
+                    <div className="detail-tags">
+                      <span className="tag">Figma</span>
+                      <span className="tag">User Testing</span>
+                      <span className="tag">Iterative Design</span>
+                      <span className="tag">Team Collaboration</span>
+                    </div>
+                    <div className="detail-year">2024</div>
+                  </div>
+                  <div className="expertise-glow"></div>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+          
+          {/* Professional Recognition */}
+          <div className="recognition-section">
+            <div className="recognition-header">
+              <h3>Professional Recognition</h3>
+              <p>Academic achievements and project success metrics</p>
+            </div>
+            
+            <div className="recognition-grid">
+              <div className="recognition-card">
+                <FaCodeBranch className="recognition-icon" />
+                <div className="recognition-title">Code Quality Focus</div>
+                <div className="recognition-description">
+                  Maintaining clean, documented code following industry standards
+                </div>
+                <div className="recognition-metric">High Standards</div>
+                <div className="recognition-glow"></div>
+              </div>
+              
+              <div className="recognition-card">
+                <FaRocket className="recognition-icon" />
+                <div className="recognition-title">Project Success</div>
+                <div className="recognition-description">
+                  Successfully delivered multiple microservices projects
+                </div>
+                <div className="recognition-metric">100% Completion</div>
+                <div className="recognition-glow"></div>
+              </div>
+              
+              <div className="recognition-card">
+                <FaCogs className="recognition-icon" />
+                <div className="recognition-title">Technical Innovation</div>
+                <div className="recognition-description">
+                  Implementing modern architectural patterns and solutions
+                </div>
+                <div className="recognition-metric">Latest Tech Stack</div>
+                <div className="recognition-glow"></div>
+              </div>
+              
+              <div className="recognition-card">
+                <FaMagic className="recognition-icon" />
+                <div className="recognition-title">Problem Solving</div>
+                <div className="recognition-description">
+                  Analyzing complex requirements and delivering efficient solutions
+                </div>
+                <div className="recognition-metric">Analytical Approach</div>
+                <div className="recognition-glow"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1129,10 +1646,7 @@ const AdvancedPortfolio = () => {
               </p>
               
               <div className="contact-details">
-                <div className="detail-item">
-                  <FaMapMarkerAlt className="detail-icon" />
-                  <span>San Francisco, CA</span>
-                </div>
+                
                 <div className="detail-item">
                   <FaCoffee className="detail-icon" />
                   <span>Available for freelance & full-time</span>
@@ -1144,15 +1658,15 @@ const AdvancedPortfolio = () => {
               </div>
 
               <div className="contact-links">
-                <a href="mailto:alex@example.com" className="contact-link">
+                <a href="mailto:dhiashayeb6@gmail.com" className="contact-link">
                   <FaEnvelope className="link-icon" />
-                  <span>alex@example.com</span>
+                  <span>dhiashayeb6@gmail.com</span>
                 </a>
-                <a href="https://linkedin.com/in/alexchen" className="contact-link">
+                <a href="https://linkedin.com/in/dhia-shayeb" className="contact-link">
                   <FaLinkedin className="link-icon" />
                   <span>LinkedIn Profile</span>
                 </a>
-                <a href="https://github.com/alexchen" className="contact-link">
+                <a href="https://github.com/ChaiebDhia" className="contact-link">
                   <FaGithub className="link-icon" />
                   <span>GitHub Portfolio</span>
                 </a>
@@ -1407,6 +1921,21 @@ const AdvancedPortfolio = () => {
   </div>
 )}
 
+{showImageModal && (
+  <div className="image-modal">
+    <div className="modal-content">
+      <button className="modal-close" onClick={() => setShowImageModal(false)}>
+        <FaTimes />
+      </button>
+      <img 
+        src={currentImage} 
+        alt="Project Preview" 
+        className="modal-image" 
+      />
+    </div>
+  </div>
+)}
+
 {showPrivacy && (
   <div className="legal-modal">
     <div className="modal-content">
@@ -1449,7 +1978,6 @@ const AdvancedPortfolio = () => {
           <div className="footer-links">
             <a href="#privacy" onClick={(e) => { e.preventDefault(); setShowPrivacy(true); }}>Privacy Policy</a>
             <a href="#terms" onClick={(e) => { e.preventDefault(); setShowTerms(true); }}>Terms of Service</a>
-            <a href="mailto:dhiashayeb6@gmail.com">Contact Directly</a>
           </div>
         </div>
       </footer>
