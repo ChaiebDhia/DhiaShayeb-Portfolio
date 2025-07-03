@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  FaBrain,FaMobileAlt,FaCertificate,FaCloud,FaCodeBranch,FaUniversity,FaGlobe,FaCogs, FaRobot, FaCode, FaProjectDiagram,FaEnvelope,FaLinkedin,FaGithub,FaDownload,FaPaperPlane,FaReact,FaNodeJs,FaPython,FaAws,FaDocker,FaBars,FaTimes,FaLightbulb,FaRocket,FaMagic,FaEye,FaPhone,FaCoffee,FaUsers,FaTrophy,FaStar,FaFire,FaMicrochip,
+  FaBrain,FaMobileAlt,FaCertificate,FaCloud,FaCodeBranch,FaUniversity,FaFileContract,FaLock,FaMapMarkerAlt,FaBolt,FaHandshake,FaGlobe,FaCogs, FaRobot, FaCode, FaProjectDiagram,FaEnvelope,FaLinkedin,FaGithub,FaDownload,FaPaperPlane,FaReact,FaPython,FaAws,FaDocker,FaBars,FaTimes,FaLightbulb,FaRocket,FaMagic,FaEye,FaPhone,FaCoffee,FaMicrochip,
 } from 'react-icons/fa';
 import { SiMongodb, SiTensorflow,  } from 'react-icons/si';
 import '../components/home.scss'
+import TypingAnimation from './TypingAnimation';
 import emailjs from 'emailjs-com';
+import { motion } from 'framer-motion';
+
 
 
 const AdvancedPortfolio = () => {
@@ -16,14 +19,6 @@ const AdvancedPortfolio = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [aiPersonality, setAiPersonality] = useState('professional');
-  const [isRecording, setIsRecording] = useState(false);
-  const [aiAnalytics, setAiAnalytics] = useState({
-    questionsAnswered: 127,
-    projectsExplained: 23,
-    skillsDiscussed: 45,
-    averageResponseTime: '1.2s'
-  });
   
   const canvasRef = useRef(null);
   const neuralNetworkRef = useRef(null);
@@ -32,6 +27,45 @@ const AdvancedPortfolio = () => {
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(true);
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Trigger layout recalc
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        document.body.style.overflow = '';
+      });
+    };
+  
+    // Run once on mount
+    handleResize();
+  
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+
+
+  
+  useEffect(() => {
+  const loadingTimer = setTimeout(() => {
+    setIsLoading(false);
+    setShowWelcome(true);
+  }, 1500); // Show welcome after 1.5s loading
+
+  const welcomeTimer = setTimeout(() => {
+    setShowWelcome(false);
+  }, 6500); // Total: 1.5s loading + 5s display = 6.5s
+
+  return () => {
+    clearTimeout(loadingTimer);
+    clearTimeout(welcomeTimer);
+  };
+}, []);
 
 
   // Enhanced Neural Network Animation
@@ -534,10 +568,7 @@ const [currentImage, setCurrentImage] = useState('');
     setIsProcessing(true);
     setUserInput('');
     
-    setAiAnalytics(prev => ({
-      ...prev,
-      questionsAnswered: prev.questionsAnswered + 1
-    }));
+   
     
     try {
       const fullApiUrl = `${apiUrl}?key=${apiKey}`;
@@ -715,6 +746,55 @@ const [currentImage, setCurrentImage] = useState('');
   const projects = [
     {
       id: 1,
+      title: "SkillSync AI Learning Platform",
+      subtitle: "MERN Stack Educational Platform with Gemini AI Integration",
+      description: "Created an innovative learning platform using the MERN stack with advanced AI features including real-time translation, course generation, and therapeutic assistance.",
+      detailedDescription: `
+        SkillSync is a comprehensive educational platform that leverages cutting-edge AI technologies to enhance learning experiences:
+        
+        Core Features:
+        - AI Therapeutic Assistant: Provides mental health support and guidance
+        - Real-time Translation: Translates spoken and written content instantly
+        - Document Translation: Processes uploaded materials in multiple languages
+        - Course Generator: Creates customized learning paths based on user needs
+        - Educational Resource Finder: Locates relevant materials for any topic
+        - AI Chatbot: 24/7 learning assistance and Q&A
+        - Voice-Enabled PDF Processing: Summarizes and interacts with course materials
+        - Smart Scheduling: Creates personalized learning schedules based on availability
+        - Roadmap Generator: Develops step-by-step learning plans
+        
+        Technical Stack:
+        - MERN Architecture (MongoDB, Express, React, Node.js)
+        - Gemini AI API for advanced NLP capabilities
+        - WebSocket for real-time communication
+        - JWT for secure authentication
+        - AWS S3 for document storage
+        
+        The platform was designed to break language barriers and provide personalized, accessible education for all users.
+      `,
+      tech: ["React", "Node.js", "MongoDB", "Express", "Gemini API", "WebSocket", "JWT", "AWS"],
+      github: "#",
+      live: "#",
+      category: "AI Education",
+      status: "Beta",
+      metrics: {
+        "AI Features": "8+",
+        "Languages": "10+",
+        "Response Time": "<2s"
+      },
+      features: [
+        "Real-time Translation", 
+        "AI Course Generation", 
+        "Therapeutic Assistant", 
+        "Voice Interaction",
+        "Smart Scheduling",
+        "Document Processing"
+      ],
+      image: "/images/SkillSync.png", // Update with your image path
+      viewImageButton: true
+    },
+    {
+      id: 2,
       title: "Automated DevOps Pipeline",
       subtitle: "End-to-End CI/CD Implementation for SpringBoot",
       description: "Designed and implemented a complete CI/CD pipeline for a SpringBoot application following DevOps principles. The pipeline incorporates 18 distinct stages that ensure code quality, security, and deployment reliability.",
@@ -770,7 +850,7 @@ const [currentImage, setCurrentImage] = useState('');
       viewImageButton: true
     },
     {
-      id: 2,
+      id: 3,
       title: "Smart Wheelchair Voice Assistant",
       subtitle: "Arduino-based Assistive Technology for Mobility",
       description: "Developed an innovative voice-controlled wheelchair system combining Arduino robotics with a Windows tablet voice assistant to help patients control their environment autonomously.",
@@ -815,58 +895,10 @@ const [currentImage, setCurrentImage] = useState('');
         "PC Control",
         "User-Friendly Interface"
       ],
-      image: "/images/VA.png", // Update with your image path
-      viewImageButton: true
-    },
-    {
-      id: 3,
-      title: "SkillSync AI Learning Platform",
-      subtitle: "MERN Stack Educational Platform with Gemini AI Integration",
-      description: "Created an innovative learning platform using the MERN stack with advanced AI features including real-time translation, course generation, and therapeutic assistance.",
-      detailedDescription: `
-        SkillSync is a comprehensive educational platform that leverages cutting-edge AI technologies to enhance learning experiences:
-        
-        Core Features:
-        - AI Therapeutic Assistant: Provides mental health support and guidance
-        - Real-time Translation: Translates spoken and written content instantly
-        - Document Translation: Processes uploaded materials in multiple languages
-        - Course Generator: Creates customized learning paths based on user needs
-        - Educational Resource Finder: Locates relevant materials for any topic
-        - AI Chatbot: 24/7 learning assistance and Q&A
-        - Voice-Enabled PDF Processing: Summarizes and interacts with course materials
-        - Smart Scheduling: Creates personalized learning schedules based on availability
-        - Roadmap Generator: Develops step-by-step learning plans
-        
-        Technical Stack:
-        - MERN Architecture (MongoDB, Express, React, Node.js)
-        - Gemini AI API for advanced NLP capabilities
-        - WebSocket for real-time communication
-        - JWT for secure authentication
-        - AWS S3 for document storage
-        
-        The platform was designed to break language barriers and provide personalized, accessible education for all users.
-      `,
-      tech: ["React", "Node.js", "MongoDB", "Express", "Gemini API", "WebSocket", "JWT", "AWS"],
-      github: "#",
-      live: "#",
-      category: "AI Education",
-      status: "Beta",
-      metrics: {
-        "AI Features": "8+",
-        "Languages": "10+",
-        "Response Time": "<2s"
-      },
-      features: [
-        "Real-time Translation", 
-        "AI Course Generation", 
-        "Therapeutic Assistant", 
-        "Voice Interaction",
-        "Smart Scheduling",
-        "Document Processing"
-      ],
-      image: "/images/SkillSync.png", // Update with your image path
+      image: "/images/VA.png", 
       viewImageButton: true
     }
+    
   ];
 
   const skills = [
@@ -882,13 +914,6 @@ const [currentImage, setCurrentImage] = useState('');
     { name: "Microservices", icon: <FaMicrochip />, level: 90, category: "Architecture" }
   ];
 
-  const achievements = [
-    { icon: <FaTrophy />, title: "Tech Innovation Award", year: "2024", description: "Best AI Integration" },
-    { icon: <FaStar />, title: "GitHub Contributor", year: "2023", description: "Open Source Excellence" },
-    { icon: <FaFire />, title: "Performance Leader", year: "2023", description: "99.9% Uptime Record" },
-    { icon: <FaUsers />, title: "Team Leadership", year: "2022", description: "Led 8+ Engineers" }
-  ];
-
   // Scroll to section
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -901,7 +926,36 @@ const [currentImage, setCurrentImage] = useState('');
 
 
   return (
+    
+
     <div className={`portfolio-container ${isLoaded ? 'loaded' : 'loading'}`}>
+      
+      {isLoading && (
+        <div className="loader">
+          <FaCode className="spinning-icon" />
+        </div>
+      )}
+
+    {showWelcome && (
+      <motion.div 
+        className="welcome-screen"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h1>Welcome</h1>
+        <p>Initializing Dhia's Portfolio</p>
+        <div className="loading-bar">
+          <motion.div 
+            className="progress"
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          />
+        </div>
+      </motion.div>
+    )}
       {/* Background Effects */}
       <canvas ref={canvasRef} className="circuit-background" />
       
@@ -916,7 +970,17 @@ const [currentImage, setCurrentImage] = useState('');
       <nav className="navbar">
         <div className="nav-container">
         <div className="nav-brand">
-          <FaMicrochip className="brand-icon" />
+          <img 
+            src="/images/SD.png" 
+            alt="Dhia Shayeb Logo"
+            className="brand-icon" 
+            style={{
+              width: '1.8rem',
+              height: '1.8rem',
+              filter: 'drop-shadow(0 0 5px rgba(0, 247, 255, 0.5))',
+              animation: 'pulse 2s infinite alternate'
+            }}
+          />
           <span className="brand-text">Dhia Shayeb</span>
           <div className="brand-subtitle">Full-Stack Engineer</div>
         </div>
@@ -951,16 +1015,21 @@ const [currentImage, setCurrentImage] = useState('');
       </nav>
 
       {/* Hero Section */}
-<section id="home" className="hero-section">
+      <motion.section
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5 }} id="home" className="hero-section">
   <canvas ref={neuralNetworkRef} className="neural-network-canvas" />
   
   <div className="hero-content">
     <div className="hero-text-container">
       <div className="hero-text">
-        <div className="hero-greeting">
-          <FaRocket className="greeting-icon" />
-          <span>Welcome to the Future</span>
+      <div className="hero-greeting">
+        <FaRocket className="greeting-icon" />
+        <div className="typing-container">
+          <TypingAnimation />
         </div>
+      </div>
         
         <div className="glitch-title">
           <span className="title-main">DHIA</span>
@@ -1013,26 +1082,30 @@ const [currentImage, setCurrentImage] = useState('');
     
     <div className="hero-stats">
       <div className="stat-item">
-        <div className="stat-number">6+</div>
-        <div className="stat-label">Years Experience</div>
+        <div className="stat-number">10+</div>
+        <div className="stat-label">Tech Stacks</div>
       </div>
       <div className="stat-item">
-        <div className="stat-number">50+</div>
-        <div className="stat-label">Projects Delivered</div>
+        <div className="stat-number">24/7</div>
+        <div className="stat-label">Availability</div>
       </div>
       <div className="stat-item">
-        <div className="stat-number">99.9%</div>
-        <div className="stat-label">Uptime Record</div>
+        <div className="stat-number">100%</div>
+        <div className="stat-label">Commitment</div>
       </div>
       <div className="stat-item">
-        <div className="stat-number">15+</div>
-        <div className="stat-label">AI Integrations</div>
+        <div className="stat-number">5+</div>
+        <div className="stat-label">Timezones</div>
       </div>
     </div>
   </div>
-</section>
+  </motion.section>
 
-      <section id="about" className="about-section">
+
+    <motion.section
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }} id="about" className="about-section">
         <div className="section-content">
           <div className="section-header">
             <div className="section-title">
@@ -1215,10 +1288,13 @@ const [currentImage, setCurrentImage] = useState('');
             </div>
           </div>
         </div>
-      </section>
+        </motion.section>
 
       {/* Projects Section */}
-      <section id="projects" className="projects-section">
+      <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }} id="projects" className="projects-section">
         <div className="section-content">
           <div className="section-header">
             <div className="section-title">
@@ -1358,10 +1434,13 @@ const [currentImage, setCurrentImage] = useState('');
             </button>
           </div>
         </div>
-      </section>
+        </motion.section>
 
       {/* Skills Section */}
-      <section id="skills" className="skills-section">
+      <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }} id="skills" className="skills-section">
         <div className="section-content">
           <div className="section-header">
             <div className="section-title">
@@ -1401,10 +1480,13 @@ const [currentImage, setCurrentImage] = useState('');
             </div>
           </div>
         </div>
-      </section>
+        </motion.section>
 
       {/* Expertise & Certifications Section */}
-      <section id="expertise" className="expertise-section">
+      <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }} id="expertise" className="expertise-section">
         <div className="section-content">
           <div className="section-header">
             <div className="section-title">
@@ -1577,51 +1659,50 @@ const [currentImage, setCurrentImage] = useState('');
             
             <div className="recognition-grid">
               <div className="recognition-card">
-                <FaCodeBranch className="recognition-icon" />
-                <div className="recognition-title">Code Quality Focus</div>
+                <FaCode className="recognition-icon" />
+                <div className="recognition-title">Polyvalent</div>
                 <div className="recognition-description">
-                  Maintaining clean, documented code following industry standards
+                  Full-stack to AI/ML solutions
                 </div>
-                <div className="recognition-metric">High Standards</div>
-                <div className="recognition-glow"></div>
+                <div className="recognition-metric">Versatile</div>
               </div>
               
               <div className="recognition-card">
-                <FaRocket className="recognition-icon" />
-                <div className="recognition-title">Project Success</div>
+                <FaGlobe className="recognition-icon" />
+                <div className="recognition-title">Global</div>
                 <div className="recognition-description">
-                  Successfully delivered multiple microservices projects
+                  Remote collaboration expert
                 </div>
-                <div className="recognition-metric">100% Completion</div>
-                <div className="recognition-glow"></div>
+                <div className="recognition-metric">Worldwide</div>
               </div>
               
               <div className="recognition-card">
-                <FaCogs className="recognition-icon" />
-                <div className="recognition-title">Technical Innovation</div>
+                <FaBolt className="recognition-icon" />
+                <div className="recognition-title">Efficient</div>
                 <div className="recognition-description">
-                  Implementing modern architectural patterns and solutions
+                  Fast turnaround times
                 </div>
-                <div className="recognition-metric">Latest Tech Stack</div>
-                <div className="recognition-glow"></div>
+                <div className="recognition-metric">Timely</div>
               </div>
               
               <div className="recognition-card">
-                <FaMagic className="recognition-icon" />
-                <div className="recognition-title">Problem Solving</div>
+                <FaHandshake className="recognition-icon" />
+                <div className="recognition-title">Reliable</div>
                 <div className="recognition-description">
-                  Analyzing complex requirements and delivering efficient solutions
+                  Consistent deliverables
                 </div>
-                <div className="recognition-metric">Analytical Approach</div>
-                <div className="recognition-glow"></div>
+                <div className="recognition-metric">Trusted</div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+        </motion.section>
 
       {/* Contact Section */}
-      <section id="contact" className="contact-section">
+      <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }} id="contact" className="contact-section">
         <div className="section-content">
           <div className="section-header">
             <div className="section-title">
@@ -1654,6 +1735,10 @@ const [currentImage, setCurrentImage] = useState('');
                 <div className="detail-item">
                   <FaPhone className="detail-icon" />
                   <span>Response within 24 hours</span>
+                </div>
+                <div className="detail-item">
+                  <FaMapMarkerAlt className="detail-icon" />
+                  <span>Tunis, Tunisia</span>
                 </div>
               </div>
 
@@ -1809,7 +1894,7 @@ const [currentImage, setCurrentImage] = useState('');
             </div>
           </div>
         </div>
-      </section>
+        </motion.section>
 
       {/* AI Chat Widget */}
       {isChatOpen && (
@@ -1896,26 +1981,51 @@ const [currentImage, setCurrentImage] = useState('');
 
       {showTerms && (
   <div className="legal-modal">
+    <div className="modal-backdrop" onClick={() => setShowTerms(false)}></div>
     <div className="modal-content">
       <button className="modal-close" onClick={() => setShowTerms(false)}>
         <FaTimes />
       </button>
-      <h3>Terms of Service</h3>
+      <h3><FaFileContract /> Terms of Service</h3>
       <div className="legal-content">
-        <h4>1. Acceptance of Terms</h4>
-        <p>By accessing and using this portfolio website ("Site"), you accept and agree to be bound by these Terms of Service...</p>
         
-        <h4>2. Intellectual Property</h4>
-        <p>All content on this Site, including but not limited to text, graphics, logos, and software, is the property of Dhia Shayeb and protected by intellectual property laws...</p>
+        <h4>1. Intellectual Property Ownership</h4>
+        <p>All content, designs, code, and creative elements displayed on this portfolio are the exclusive property of Dhia Shayeb. Unauthorized reproduction, distribution, or use of any materials without express written permission is strictly prohibited and will be prosecuted to the fullest extent of international copyright laws.</p>
         
-        <h4>3. Use License</h4>
-        <p>Permission is granted to temporarily download one copy of the materials on this Site for personal, non-commercial transitory viewing only...</p>
+        <h4>2. Professional Use Only</h4>
+        <p>This portfolio and its contact mechanisms are intended solely for legitimate business inquiries and professional collaboration opportunities. Any misuse of these channels for spam, unsolicited marketing, or non-professional communication is expressly forbidden.</p>
         
-        <h4>4. Disclaimer</h4>
-        <p>The materials on this Site are provided "as is". Dhia Shayeb makes no warranties, expressed or implied...</p>
+        <h4>3. Liability Disclaimer</h4>
+        <p>Dhia Shayeb disclaims all liability for any indirect, incidental, special, consequential or punitive damages resulting from access to or use of this portfolio. All content is provided "as is" without warranty of any kind.</p>
         
-        <h4>5. Limitations</h4>
-        <p>In no event shall Dhia Shayeb or its suppliers be liable for any damages arising out of the use or inability to use the materials on this Site...</p>
+        <h4>4. Jurisdiction</h4>
+        <p>These terms shall be governed by and construed in accordance with Tunisian law. Any disputes shall be resolved exclusively in the competent courts of Tunisia.</p>
+      </div>
+    </div>
+  </div>
+)}
+
+{showPrivacy && (
+  <div className="legal-modal">
+    <div className="modal-backdrop" onClick={() => setShowPrivacy(false)}></div>
+    <div className="modal-content">
+      <button className="modal-close" onClick={() => setShowPrivacy(false)}>
+        <FaTimes />
+      </button>
+      <h3><FaLock /> Privacy Protection</h3>
+      <div className="legal-content">
+        
+        <h4>1. Data Ownership</h4>
+        <p>All data submitted through this portfolio becomes the property of Dhia Shayeb for professional communication purposes only. You retain the right to request deletion of your personal data at any time.</p>
+
+        <h4>2. Absolute Confidentiality</h4>
+        <p>Contact information and communication content will never be disclosed, sold, or shared with any third parties without explicit consent, except as required by Tunisian law.</p>
+
+        <h4>3. Security Measures</h4>
+        <p>This portfolio implements industry-standard security protocols including encrypted data transmission, secure form handling, and regular security audits to protect against unauthorized access.</p>
+
+        <h4>4. Professional Boundaries</h4>
+        <p>Only information relevant to potential professional collaboration is collected. The portfolio does not use tracking cookies or analytics that compromise user privacy.</p>
       </div>
     </div>
   </div>
@@ -1923,6 +2033,7 @@ const [currentImage, setCurrentImage] = useState('');
 
 {showImageModal && (
   <div className="image-modal">
+    <div className="modal-backdrop" onClick={() => setShowImageModal(false)}></div>
     <div className="modal-content">
       <button className="modal-close" onClick={() => setShowImageModal(false)}>
         <FaTimes />
@@ -1935,53 +2046,35 @@ const [currentImage, setCurrentImage] = useState('');
     </div>
   </div>
 )}
-
-{showPrivacy && (
-  <div className="legal-modal">
-    <div className="modal-content">
-      <button className="modal-close" onClick={() => setShowPrivacy(false)}>
-        <FaTimes />
-      </button>
-      <h3>Privacy Policy</h3>
-      <div className="legal-content">
-        <h4>1. Information Collection</h4>
-        <p>We may collect personal identification information including but not limited to name, email address, and contact details when users fill out our contact form...</p>
-        
-        <h4>2. Use of Information</h4>
-        <p>Collected information may be used to respond to inquiries, improve user experience, and for communication purposes...</p>
-        
-        <h4>3. Data Protection</h4>
-        <p>We implement appropriate data collection, storage, and processing practices to protect against unauthorized access...</p>
-        
-        <h4>4. Cookies</h4>
-        <p>Our Site may use "cookies" to enhance User experience. Users may set their web browser to refuse cookies...</p>
-        
-        <h4>5. Changes to Policy</h4>
-        <p>We reserve the right to update this privacy policy at any time. We encourage Users to frequently check this page for any changes...</p>
-      </div>
-    </div>
-  </div>
-)}
       
       <footer className="portfolio-footer">
         <div className="footer-particle"></div>
         <div className="footer-particle"></div>
         <div className="footer-content">
-        <div className="copyright-info">
-          <p>© {new Date().getFullYear()} Dhia Shayeb. All Rights Reserved.</p>
-          <p className="copyright-notice">
-            The content, design, and code of this portfolio are protected under international 
-            copyright laws. Unauthorized reproduction or distribution of any materials 
-            without express written permission is strictly prohibited.
-          </p>
-        </div>
+          <div className="brand-logo-footer">
+            <img 
+              src="/images/SD.png" 
+              alt="Dhia Shayeb Logo"
+              className="footer-logo"
+            />
+          </div>
+          <div className="copyright-info">
+            <p>© {new Date().getFullYear()} Dhia Shayeb. All Rights Reserved.</p>
+            <p className="copyright-notice">
+              The content, design, and code of this portfolio are protected under international 
+              copyright laws. Unauthorized reproduction or distribution of any materials 
+              without express written permission is strictly prohibited.
+            </p>
+          </div>
           <div className="footer-links">
             <a href="#privacy" onClick={(e) => { e.preventDefault(); setShowPrivacy(true); }}>Privacy Policy</a>
             <a href="#terms" onClick={(e) => { e.preventDefault(); setShowTerms(true); }}>Terms of Service</a>
           </div>
         </div>
       </footer>
+      
     </div>
+    
     
   );
 };
