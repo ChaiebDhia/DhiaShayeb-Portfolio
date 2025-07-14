@@ -2,14 +2,14 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 
 const TypingAnimation = () => {
-  // Move messages outside component or use useMemo to memoize it
+  
   const messages = useMemo(() => [
-    "Let's innovate!",
-    "Build with me",
-    "Tech solutions",
-    "Quality code",
-    "Creative minds",
-    "Future projects"
+    "Building Scalable Solutions.",
+    "Driving AI Innovation.",
+    "Optimizing Performance.",
+    "Crafting Robust Systems.",
+    "Delivering Impactful Tech.",
+    "Accelerating Development."
   ], []);
 
   const [displayText, setDisplayText] = useState('');
@@ -18,9 +18,8 @@ const TypingAnimation = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [cursorColor, setCursorColor] = useState('#00f7ff');
 
-  // Faster typing speeds
-  const typingSpeed = 50;
-  const deletingSpeed = 30;
+  const typingSpeed = 70;
+  const deletingSpeed = 70;
   const pauseBetween = 800;
 
   useEffect(() => {
@@ -54,7 +53,7 @@ const TypingAnimation = () => {
     }
 
     return () => clearTimeout(timeout);
-  }, [currentCharIndex, isDeleting, currentMessageIndex, messages]); // Added messages to dependency array
+  }, [currentCharIndex, isDeleting, currentMessageIndex, messages]); 
 
   return (
     <div className="typing-text">

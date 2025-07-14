@@ -1,0 +1,131 @@
+
+// Variables
+$bg-dark: #050714;
+$bg-darker: #030208;
+$panel-bg: rgba(13, 18, 38, 0.8);
+$neon-cyan: #00f7ff;
+$neon-pink: #ff00cc;
+$neon-purple: #9933ff;
+$neon-blue: #0077ff;
+$text-light: #e0e6ff;
+$text-dim: #8a94bf;
+$accent-1: #ff3370;
+$accent-2: #4deeea;
+$accent-3: #74ee15;
+$grid-color: rgba(0, 247, 255, 0.15);
+$gradient-dark: linear-gradient(135deg, rgba(13, 17, 38, 0.95) 0%, rgba(8, 12, 25, 0.97) 100%);
+$cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $neon-blue);
+
+.navbar {
+    background: linear-gradient(
+      135deg, 
+      rgba(5, 7, 20, 0.519) 0%, 
+      rgba(9, 12, 35, 0.441) 50%, 
+      rgba(62, 0, 32, 0.5) 100%
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba($neon-cyan, 0.1);
+    
+    &.scrolled {
+      background: rgba(5, 7, 20, 0.95);
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+  
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+  
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1001;
+  
+      .brand-icon {
+        font-size: 1.8rem;
+        color: $neon-cyan;
+        animation: pulse 2s infinite alternate;
+      }
+  
+      .brand-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $text-light;
+        letter-spacing: 1px;
+      }
+  
+      .brand-subtitle {
+        font-size: 0.7rem;
+        color: $neon-cyan;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 5px;
+      }
+    }
+  
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+  
+      a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: $text-dim;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 8px 0;
+        position: relative;
+        transition: all 0.3s ease;
+  
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: $cyber-gradient;
+          transition: width 0.3s ease;
+        }
+  
+        &:hover, &.active {
+          color: $neon-cyan;
+  
+          &::after {
+            width: 100%;
+          }
+        }
+  
+        &.active {
+          color: $neon-cyan;
+        }
+      }
+    }
+  
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: $text-light;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+  }

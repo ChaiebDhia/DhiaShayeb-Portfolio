@@ -1,23 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
+    <!-- Primary Meta Tags -->
     <meta charset="utf-8" />
-    <!-- Updated favicon links for PNG -->
-    <link rel="icon" href="%PUBLIC_URL%/images/SD.png?v=2" type="image/png">
-    <link rel="alternate icon" href="%PUBLIC_URL%/favicon.ico?v=2">
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png?v=2">
-    
-    <!-- Updated preload for PNG -->
-    <link rel="preload" href="%PUBLIC_URL%/images/SD.png" as="image" type="image/png">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
     <meta name="theme-color" content="#050714" />
-    <title>Dhia Shayeb | Full-Stack Engineer | AI/ML Solutions</title>
-    <meta name="description" content="Dhia Shayeb | Full-Stack Engineer & Digital Architect. Crafting cutting-edge web solutions with React, Node.js, and modern tech stacks." />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta name="msapplication-TileColor" content="#050714" />
+    <title>Dhia Shayeb | Senior Full-Stack Engineer & AI Solutions Architect</title>
+    <meta name="description" content="Dhia Shayeb - Expert Full-Stack Engineer specializing in AI/ML integration, cloud-native solutions, and high-performance web applications. Proven track record in delivering enterprise-grade software with React, Node.js, and modern tech stacks." />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="%PUBLIC_URL%/images/SD.png?v=3" type="image/png" sizes="192x192">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?v=3">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png?v=3">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="%PUBLIC_URL%/images/SD.png" as="image" type="image/png" fetchpriority="high">
+    
+    <!-- Open Graph Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dhia Shayeb | Senior Full-Stack Engineer & AI Solutions Architect">
+    <meta property="og:description" content="Expert in building scalable web applications with React, Node.js, and AI integration. Specializing in cloud architecture and DevOps automation.">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" crossorigin="use-credentials">
+    
+    <!-- Performance Optimizations -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div style="position:fixed;top:0;left:0;right:0;background:#ff4444;color:white;padding:1rem;text-align:center;z-index:9999;">
+        <strong>JavaScript Required:</strong> This portfolio requires JavaScript to display properly. Please enable it in your browser settings.
+      </div>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>
