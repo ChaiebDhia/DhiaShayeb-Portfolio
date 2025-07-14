@@ -2,13 +2,28 @@ import React from 'react';
 import { FaFileContract, FaLock } from 'react-icons/fa';
 import './Footer.scss';
 
-const Footer = ({ setShowTerms, setShowPrivacy }) => {
+const Footer = ({ setShowTerms, setShowPrivacy, scrollToSection }) => {
+  const handleLogoClick = () => {
+    if (typeof scrollToSection === 'function') {
+      scrollToSection('home');
+    } else {
+      const homeSection = document.getElementById('home');
+      if (homeSection) {
+        homeSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="portfolio-footer">
       <div className="footer-particle"></div>
       <div className="footer-particle"></div>
       <div className="footer-content">
-        <div className="brand-logo-footer">
+        <div 
+          className="brand-logo-footer" 
+          onClick={handleLogoClick} 
+          style={{ cursor: 'pointer' }}
+        >
           <img 
             src="/images/SD.png" 
             alt="Dhia Shayeb Logo"

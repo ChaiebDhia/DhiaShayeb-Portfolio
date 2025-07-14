@@ -6,7 +6,7 @@ const Navbar = ({ activeSection, scrollToSection, isNavOpen, setIsNavOpen }) => 
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <div className="nav-brand">
+        <div className="nav-brand" onClick={() => scrollToSection('home')} style={{ cursor: 'pointer' }}>
           <img 
             src="/images/SD.png" 
             alt="Dhia Shayeb Logo"
