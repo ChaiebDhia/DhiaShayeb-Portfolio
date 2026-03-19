@@ -97,7 +97,7 @@ const AboutSection = () => {
                 <span className="institution">ESPRIT - Private Higher School of Engineering and Technology</span>
                 <span className="degree">Engineer's Degree, Information Technology</span>
               </div>
-              <div className="education-period">2024 - 2026</div>
+              <div className="education-period">2021 - 2026</div>
             </div>
             <div className="education-details">
               <div className="education-tag">
@@ -106,40 +106,6 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* ISIK */}
-          <div className="education-item">
-            <div className="education-header">
-              <div className="education-icon">
-                <FaCodeBranch />
-              </div>
-              <div className="education-title">
-                <span className="institution">Higher Institute of Computer Science of Kef</span>
-                <span className="degree">Master's Degree (Partial), Intelligent Web Applications</span>
-              </div>
-              <div className="education-period">2023 - 2024</div>
-            </div>
-            <div className="education-details">
-              <p className="transition-note">
-                Proactively transitioned academic paths after successfully completing the first year to pursue an Engineering degree at ESPRIT.
-              </p>
-            </div>
-          </div>
-
-          {/* Bachelor's */}
-          <div className="education-item">
-            <div className="education-header">
-              <div className="education-icon">
-                <FaCode />
-              </div>
-              <div className="education-title">
-                <span className="institution">Higher Institute of Computer Science of Kef</span>
-                <span className="degree">Bachelor of Engineering, Computer Science</span>
-              </div>
-              <div className="education-period">2020 - 2023</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* CTA Buttons */}
       <div className="cta-section">
