@@ -100,9 +100,7 @@ const AboutSection = () => {
                       <div className="education-period">2021 - 2026</div>
                     </div>
                     <div className="education-details">
-                      <div className="education-tag">
-                        <span>Specialization: Web Technologies & Internet Systems (TWIN)</span>
-                      </div>
+                      
                     </div>
                   </div> {/* ✅ closes education-item */}
                 </div> {/* ✅ closes education-timeline */}
