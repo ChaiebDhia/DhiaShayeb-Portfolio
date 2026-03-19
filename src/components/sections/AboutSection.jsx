@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   FaLightbulb, FaRocket, FaCode, FaMobileAlt, FaGlobe, 
-  FaUniversity, FaCodeBranch, FaMicrochip, FaPaperPlane ,FaBrain,FaCogs
+  FaUniversity, FaMicrochip, FaPaperPlane ,FaBrain,FaCogs
 } from 'react-icons/fa';
 import './AboutSection.scss';
 import { motion } from 'framer-motion';
