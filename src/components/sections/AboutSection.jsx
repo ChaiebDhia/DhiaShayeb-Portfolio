@@ -46,79 +46,80 @@ const AboutSection = () => {
               </div>
               
               <div className="about-highlights">
-        <div className="highlight-grid">
-          <div className="highlight-item">
-            <div className="highlight-icon-container">
-              <FaCode className="highlight-icon" />
-            </div>
-            <div className="highlight-content">
-              <h4>Full-Stack Versatility</h4>
-              <p>Frontend to DevOps with multiple tech stacks</p>
-            </div>
-          </div>
-          <div className="highlight-item">
-            <div className="highlight-icon-container">
-              <FaMobileAlt className="highlight-icon" />
-            </div>
-            <div className="highlight-content">
-              <h4>Platform Agnostic</h4>
-              <p>Web, mobile, desktop, and cloud solutions</p>
-            </div>
-          </div>
-          <div className="highlight-item">
-            <div className="highlight-icon-container">
-              <FaGlobe className="highlight-icon" />
-            </div>
-            <div className="highlight-content">
-              <h4>Global Delivery</h4>
-              <p>Remote collaboration across timezones</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Education section */}
-      <div className="bio-section education-section">
-        <div className="section-divider"></div>
-        
-        <h3 className="bio-title">
-          <FaUniversity className="bio-icon" />
-          Education & Technical Foundation
-        </h3>
-        
-        <div className="education-timeline">
-          {/* ESPRIT */}
-          <div className="education-item">
-            <div className="education-header">
-              <div className="education-icon">
-                <FaMicrochip />
+                <div className="highlight-grid">
+                  <div className="highlight-item">
+                    <div className="highlight-icon-container">
+                      <FaCode className="highlight-icon" />
+                    </div>
+                    <div className="highlight-content">
+                      <h4>Full-Stack Versatility</h4>
+                      <p>Frontend to DevOps with multiple tech stacks</p>
+                    </div>
+                  </div>
+                  <div className="highlight-item">
+                    <div className="highlight-icon-container">
+                      <FaMobileAlt className="highlight-icon" />
+                    </div>
+                    <div className="highlight-content">
+                      <h4>Platform Agnostic</h4>
+                      <p>Web, mobile, desktop, and cloud solutions</p>
+                    </div>
+                  </div>
+                  <div className="highlight-item">
+                    <div className="highlight-icon-container">
+                      <FaGlobe className="highlight-icon" />
+                    </div>
+                    <div className="highlight-content">
+                      <h4>Global Delivery</h4>
+                      <p>Remote collaboration across timezones</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="education-title">
-                <span className="institution">ESPRIT - Private Higher School of Engineering and Technology</span>
-                <span className="degree">Engineer's Degree, Information Technology</span>
-              </div>
-              <div className="education-period">2021 - 2026</div>
-            </div>
-            <div className="education-details">
-              <div className="education-tag">
-                <span>Specialization: Web Technologies & Internet Systems (TWIN)</span>
-              </div>
-            </div>
-          </div>
 
+              {/* Education section */}
+              <div className="bio-section education-section">
+                <div className="section-divider"></div>
+                
+                <h3 className="bio-title">
+                  <FaUniversity className="bio-icon" />
+                  Education & Technical Foundation
+                </h3>
+                
+                <div className="education-timeline">
+                  {/* ESPRIT */}
+                  <div className="education-item">
+                    <div className="education-header">
+                      <div className="education-icon">
+                        <FaMicrochip />
+                      </div>
+                      <div className="education-title">
+                        <span className="institution">ESPRIT - Private Higher School of Engineering and Technology</span>
+                        <span className="degree">Engineer's Degree, Information Technology</span>
+                      </div>
+                      <div className="education-period">2021 - 2026</div>
+                    </div>
+                    <div className="education-details">
+                      <div className="education-tag">
+                        <span>Specialization: Web Technologies & Internet Systems (TWIN)</span>
+                      </div>
+                    </div>
+                  </div> {/* ✅ closes education-item */}
+                </div> {/* ✅ closes education-timeline */}
+              </div> {/* ✅ closes bio-section education-section */}
 
-      {/* CTA Buttons */}
-      <div className="cta-section">
-        <div className="cta-buttons">
-          <a href="#contact" className="cta-button primary">
-            <FaPaperPlane /> Start a Conversation
-          </a>
-          <a href="#projects" className="cta-button secondary">
-            <FaCode /> Explore My Projects
-          </a>
-        </div>
-      </div>
-            </div>
+              {/* CTA Buttons */}
+              <div className="cta-section">
+                <div className="cta-buttons">
+                  <a href="#contact" className="cta-button primary">
+                    <FaPaperPlane /> Start a Conversation
+                  </a>
+                  <a href="#projects" className="cta-button secondary">
+                    <FaCode /> Explore My Projects
+                  </a>
+                </div>
+              </div>
+            </div> {/* ✅ closes about-text */}
             
             <div className="about-visual">
               <div className="tech-showcase">
