@@ -130,21 +130,19 @@ const AboutSection = () => {
 
                 {/* Separate orbits for each tech category */}
                 <div className="tech-orbit frontend-orbit">
-                  <div className="tech-node">Frontend</div>
-                </div>
-
-                <div className="tech-orbit backend-orbit">
-                  <div className="tech-node">Backend</div>
-                </div>
-
-                <div className="tech-orbit mobile-orbit">
-                  <div className="tech-node">Mobile</div>
-                </div>
-
-                <div className="tech-orbit devops-orbit">
-                  <div className="tech-node">DevOps</div>
-                </div>
-
+                    <div className="tech-node">FRONTEND</div>
+                  </div>
+  
+                  <div className="tech-orbit backend-orbit">
+                    <div className="tech-node">BACKEND</div>
+                  </div>
+  
+                  <div className="tech-orbit mobile-orbit">
+                    <div className="tech-node">MOBILE</div>
+                  </div>
+  
+                  <div className="tech-orbit devops-orbit">
+                    <div className="tech-node">DEVOPS</div>
                 <div className="tech-orbit cloud-orbit">
                   <div className="tech-node ai">AI/ML</div>
                 </div>

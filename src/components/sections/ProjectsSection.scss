@@ -75,8 +75,8 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
     
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
-      padding: 15px;
-      gap: 20px;
+      padding: 20px 15px;
+      gap: 30px;
     }
 
     .project-slide {

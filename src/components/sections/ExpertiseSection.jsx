@@ -125,23 +125,23 @@ const ExpertiseSection = () => {
                         <div className="item-info">
                           <div className="item-title">
                             <FaMicrochip className="item-icon" />
-                            <h4>AI & Full-Stack Engineer</h4>
+                            <h4>AI Engineer Intern (Graduation Project)</h4>
                           </div>
-                          <div className="item-subtitle">YEBNI • Aug 2024 - Present</div>
+                          <div className="item-subtitle">YEBNI, Tunisia • Feb 2026 - Jul 2026</div>
                           <div className="item-description">
-                            Architecting scalable AI solutions and robust web applications. Integrating large language models and modern frameworks to drive enterprise automation and streamline operations.
+                            Architected DeepCoin-Core with a LangGraph workflow featuring 5 agents, hybrid RAG, EfficientNet-B3 (80.03% TTA), and hardened CI/CD production pipelines.
                           </div>
                         </div>
-                        <div className="verification-badge">Engineer</div>
+                        <div className="verification-badge">Intern</div>
                       </div>
                       <div className="item-details">
                         <div className="detail-tags">
-                          <span className="tag">Agentic AI</span>
-                          <span className="tag">Next.js</span>
-                          <span className="tag">Python</span>
-                          <span className="tag">LLMs</span>
+                          <span className="tag">LangGraph</span>
+                          <span className="tag">Hybrid RAG</span>
+                          <span className="tag">PyTorch</span>
+                          <span className="tag">CI/CD</span>
                         </div>
-                        <div className="detail-year">2024</div>
+                        <div className="detail-year">2026</div>
                       </div>
                       <div className="expertise-glow"></div>
                     </div>
@@ -151,23 +151,23 @@ const ExpertiseSection = () => {
                         <div className="item-info">
                           <div className="item-title">
                             <FaProjectDiagram className="item-icon" />
-                            <h4>Software Engineer Intern</h4>
+                            <h4>Full-Stack Engineering Intern</h4>
                           </div>
-                          <div className="item-subtitle">Tunisia Telecom • Jan 2024 - May 2024</div>
+                          <div className="item-subtitle">Tunisia Telecom, Tunisia • Jul 2025 - Aug 2025</div>
                           <div className="item-description">
-                            Developed internal telecommunication management tools. Optimized database architectures and implemented secure API microservices for high-availability systems.
+                            Developed Python automation for FTTH/5G infrastructure. Created real-time Streamlit monitoring dashboards and reduced configuration time by 80% via network automation.
                           </div>
                         </div>
                         <div className="verification-badge">Intern</div>
                       </div>
                       <div className="item-details">
                         <div className="detail-tags">
-                          <span className="tag">Microservices</span>
-                          <span className="tag">Backend</span>
-                          <span className="tag">SQL</span>
-                          <span className="tag">Node.js</span>
+                          <span className="tag">Python</span>
+                          <span className="tag">Automation</span>
+                          <span className="tag">Streamlit</span>
+                          <span className="tag">Networking</span>
                         </div>
-                        <div className="detail-year">2024</div>
+                        <div className="detail-year">2025</div>
                       </div>
                       <div className="expertise-glow"></div>
                     </div>
@@ -179,9 +179,9 @@ const ExpertiseSection = () => {
                             <FaGithub className="item-icon" />
                             <h4>Web Developer Intern</h4>
                           </div>
-                          <div className="item-subtitle">Bright Soft • Feb 2023 - May 2023</div>
+                          <div className="item-subtitle">Bright Soft, Tunisia • Jul 2023 - Aug 2023</div>
                           <div className="item-description">
-                            Contributed to the development of full-stack data dashboards. Engineered scalable user interfaces and automated CI/CD pipelines to accelerate feature delivery.
+                            Developed full-stack SaaS features leveraging React and Node.js. Contributed to AI/NLP workflows for document processing and enhanced application testing practices.
                           </div>
                         </div>
                         <div className="verification-badge portfolio">Intern</div>
@@ -189,9 +189,9 @@ const ExpertiseSection = () => {
                       <div className="item-details">
                         <div className="detail-tags">
                           <span className="tag">React</span>
-                          <span className="tag">Frontend</span>
-                          <span className="tag">APIs</span>
-                          <span className="tag">DevOps</span>
+                          <span className="tag">Node.js</span>
+                          <span className="tag">AI/NLP</span>
+                          <span className="tag">SaaS</span>
                         </div>
                         <div className="detail-year">2023</div>
                       </div>

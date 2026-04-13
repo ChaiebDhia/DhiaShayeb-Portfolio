@@ -9,25 +9,25 @@ const ProjectsSection = ({ setShowImageModal, setCurrentImage }) => {
   const projects = [
     {
       id: 1,
-      title: "DeepCoin-Core",
-      subtitle: "Agentic AI + RAG + Deep Learning Platform",
-      description: "A comprehensive AI platform for archaeological coin classification, featuring a LangGraph workflow with 5 agents and hybrid RAG, deployed on a cloud-native Next.js 15 and FastAPI stack.",
+      title: "DeepCoin-Core [In Progress]",
+      subtitle: "Graduation Project • Agentic AI + RAG + Deep Learning",
+      description: "A comprehensive AI platform for archaeological coin classification, featuring a LangGraph workflow with 5 agents and hybrid RAG, deployed on a cloud-native Next.js 15 and FastAPI stack. Currently under active development with daily GitHub pushes.",
       detailedDescription: `
-        DeepCoin-Core is a production-grade AI platform developed as my Graduation Project at YEBNI. It seamlessly combines Computer Vision, Agentic AI, and full-stack development to classify and analyze archaeological coins.
+        DeepCoin-Core is a production-grade AI platform developed as my Graduation Project at YEBNI (Feb 2026 - Jul 2026). It seamlessly combines Computer Vision, Agentic AI, and full-stack development to classify and analyze archaeological coins.
         
         The core intelligence relies on an EfficientNet-B3 deep learning model with 8x Test-Time Augmentation (TTA), achieving an 80.03% benchmark accuracy across 438 distinct classes. 
         
-        To enrich the analytical capabilities, I implemented a multi-agent orchestrated workflow using LangGraph. It features 5 specialized agents utilizing confidence-based routing and a Hybrid RAG approach (BM25 + Vector Search + Reciprocal Rank Fusion) backed by ChromaDB. This expands the knowledge base to 9,541 coin types and over 47,000 embedded vectors.
+        To enrich the analytical capabilities, I engineered a multi-agent orchestrated workflow using LangGraph. It features 5 specialized agents utilizing confidence-based routing and a Hybrid RAG approach (BM25 + Vector Search) backed by ChromaDB. This expands the knowledge base to 9,541 coin types and 47,705 embedded vectors.
         
-        The backend is powered by asynchronous Python via FastAPI, connected to PostgreSQL and Redis for robust data management and caching. The frontend is built on Next.js 15, offering a responsive analytical interface. Grad-CAM++ was integrated to provide explainability for the neural network predictions, and an Active Learning loop continually improves the model.
+        The backend is a high-throughput asynchronous Python API via FastAPI (achieving 250 req/sec), connected to robust data management tools. The frontend is built on Next.js 15 with Framer Motion, offering a responsive analytical interface. Grad-CAM++ was integrated to provide MLOps explainability.
         
-        The entire application is containerized using Docker Compose, monitored via MLflow, and hardened for production with robust API authentication, rate limiting, structured logs, and a CI/CD pipeline featuring 122 automated tests.
+        The application is actively being developed with daily commits, monitored via extensive metrics, and hardened for production with a robust CI/CD pipeline.
       `,
-      tech: ["PyTorch", "LangGraph", "FastAPI", "Next.js 15", "ChromaDB", "Docker", "MLflow", "PostgreSQL"],
+      tech: ["PyTorch", "LangGraph", "FastAPI", "Next.js 15", "ChromaDB", "Docker", "MLflow"],
       github: "https://github.com/ChaiebDhia/DeepCoin-Core",
       live: "#",
       category: "AI & Full-Stack",
-      status: "Production",
+      status: "In Progress",
       metrics: {
         "Accuracy": "80.03%",
         "Vectors Indexed": "47,705",
@@ -83,26 +83,28 @@ const ProjectsSection = ({ setShowImageModal, setCurrentImage }) => {
     },
     {
       id: 3,
-      title: "Cloud-Native Microservices",
-      subtitle: "Scalable Architecture Platform",
-      description: "Implemented a robust microservices architecture featuring service discovery, API gateway, and seamless inter-service communication.",
+      title: "E-Commerce Microservices [Group Project]",
+      subtitle: "Academic Team of 4 • Spring Boot & Angular",
+      description: "Developed a distributed microservices e-commerce platform featuring an API gateway, Eureka service discovery, and centralized configuration.",
       detailedDescription: `
-        Developed a scalable, cloud-native microservices platform using the Spring Cloud ecosystem. The architecture emphasizes decoupled services, resilience, and high availability.
+        Developed a scalable, cloud-native microservices platform using the Spring Cloud ecosystem as a group project with 3 other team members. The architecture emphasizes decoupled services, resilience, and high availability.
         
         The core infrastructure includes an API Gateway as the single entry point, Eureka for dynamic service discovery and registration, and Spring Cloud Config for centralized, externalized configuration management across all environments.
         
-        The services communicate efficiently while persisting data to MySQL databases, all containerized via Docker for parity across dev, staging, and production.
+        The services communicate efficiently while persisting data to MySQL databases, all containerized via Docker for parity across environments.
         
-        The frontend interface is built with Angular, providing a dynamic single-page application experience that consumes the distributed backend services transparently. This modular structure allows independent scaling of features and resilient failovers.
+        The frontend interface is built with Angular. This project was a major collaborative effort to simulate enterprise agile patterns and scaling.
+        
+        *Note: The image shown is a work-in-progress schematic snapshot of the backend architecture.*
       `,
-      tech: ["Spring Cloud", "Eureka", "API Gateway", "Angular", "MySQL", "Docker"],
+      tech: ["Spring Boot", "Spring Cloud", "Eureka", "API Gateway", "Angular", "Docker"],
       github: "https://github.com/ChaiebDhia/Microservices",
       live: "#",
       category: "Architecture",
-      status: "Production",
+      status: "MVP",
       metrics: {
         "Architecture": "Microservices",
-        "Cloud Native": "Yes",
+        "Team Size": "4 Developers",
         "Decoupled": "Yes"
       },
       features: [
@@ -111,7 +113,7 @@ const ProjectsSection = ({ setShowImageModal, setCurrentImage }) => {
         "Centralized Config", 
         "Docker Containerization",
         "Angular Frontend",
-        "Relational Persistence"
+        "System Schematic"
       ],
       image: "/images/Microservices.png",
       viewImageButton: true
