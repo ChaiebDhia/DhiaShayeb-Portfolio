@@ -43,16 +43,12 @@ const ContactSection = ({ activeSection }) => {
         message: formData.message,
       };
 
-      const response = await emailjs.send(
+      await emailjs.send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_8izsisn',
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_cfnj4la',
         templateParams,
         process.env.REACT_APP_EMAILJS_USER_ID || 'VT1K8fZDMjUHS2IAA'
       );
-
-      if (response.status !== 200) {
-        throw new Error('Failed to send message');
-      }
   
       setSubmitStatus({
         success: true,
