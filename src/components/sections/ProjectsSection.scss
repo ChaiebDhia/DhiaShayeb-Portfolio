@@ -1,4 +1,6 @@
-.projects-section * { box-sizing: border-box; }\n// Variables
+.projects-section * { box-sizing: border-box; }
+
+// Variables
 $bg-dark: #050714;
 $bg-darker: #030208;
 $panel-bg: rgba(13, 18, 38, 0.8);
@@ -904,3 +906,5 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
 
 
 @media (max-width: 768px) { .projects-section { padding: 60px 15px !important; overflow: hidden; box-sizing: border-box; } .section-content { width: 100% !important; padding: 0 !important; margin: 0 !important; box-sizing: border-box; } .projects-grid-container { width: 100% !important; padding: 0 !important; gap: 20px !important; display: flex !important; flex-direction: column !important; box-sizing: border-box; } .project-slide { width: 100% !important; padding: 0 !important; margin: 0 !important; box-sizing: border-box; } .project-card { width: 100% !important; max-width: 100% !important; margin: 0 !important; box-sizing: border-box !important; border-left: 1px solid rgba(0, 247, 255, 0.2) !important; border-right: 1px solid rgba(0, 247, 255, 0.2) !important; } }
+.project-slide { align-items: flex-start !important; }
+.projects-grid-container { align-items: flex-start !important; }

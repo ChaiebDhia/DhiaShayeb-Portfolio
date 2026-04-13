@@ -20,6 +20,7 @@ const Navbar = ({ activeSection, scrollToSection, isNavOpen, setIsNavOpen }) => 
           />
           <span className="brand-text">Dhia Shayeb</span>
           <div className="brand-subtitle">Full-Stack AI Engineer</div>
+        </div>
         
         <div className={`nav-menu ${isNavOpen ? 'active' : ''}`}>
           <a href="#home" onClick={() => scrollToSection('home')} className={activeSection === 'home' ? 'active' : ''}>

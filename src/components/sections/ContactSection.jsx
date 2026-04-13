@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import { 
   FaEnvelope, FaLinkedin, FaGithub, FaPaperPlane, FaRocket, 
   FaCoffee, FaPhone, FaMapMarkerAlt 
@@ -28,18 +29,29 @@ const ContactSection = ({ activeSection }) => {
     setSubmitStatus(null);
   
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const templateParams = {
+        name: formData.name,
+        from_name: formData.name,
+        email: formData.email,
+        inquiry_type: formData.inquiryType,
+        inquiryType: formData.inquiryType,
+        company: formData.company || 'N/A',
+        position: formData.position || 'N/A',
+        projectType: formData.projectType || 'N/A',
+        budget: formData.budget || 'N/A',
+        timeline: formData.timeline || 'N/A',
+        message: formData.message,
+      };
 
-      const result = await response.json();
+      const response = await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_8izsisn',
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_cfnj4la',
+        templateParams,
+        process.env.REACT_APP_EMAILJS_USER_ID || 'VT1K8fZDMjUHS2IAA'
+      );
 
-      if (!response.ok) {
-        throw new Error(result.message || 'Failed to send message');
+      if (response.status !== 200) {
+        throw new Error('Failed to send message');
       }
   
       setSubmitStatus({
@@ -65,10 +77,10 @@ const ContactSection = ({ activeSection }) => {
         message: ''
       });
     } catch (error) {
-      console.error('SMTP sending error:', error);
+      console.error('EmailJS sending error:', error);
       setSubmitStatus({
         success: false,
-        message: 'Failed to send message via SMTP. Please check your network or contact directly at dhiashayeb6@gmail.com'
+        message: 'Failed to send message. Please check your network or contact directly at dhiashayeb6@gmail.com'
       });
     } finally {
       setIsSubmitting(false);

@@ -3,7 +3,7 @@ import { FaRobot, FaTimes, FaPaperPlane } from 'react-icons/fa';
 import { GoogleGenAI } from '@google/genai';
 import './ChatWidget.scss';
 
-const ai = new GoogleGenAI({ apiKey: "AIzaSyBiGvOvkveJ-rilbku9v2peLUsWnQAEf2c" });
+const ai = new GoogleGenAI({ apiKey: process.env.REACT_APP_API_KEY || "AIzaSyDcL-Bxs64HYnImR3wSMkQpYQLquktsR4k" });
 
 const promptText = `You are an AI assistant representing Dhia Shayeb, an AI Engineer & Full-Stack Architect. Answer questions ONLY about Dhia based on the following information. Be professional, technical, and engaging. Talk in the first person ("I am Dhia...").
 
@@ -54,8 +54,8 @@ const userMessage = {
     
     try {
         const response = await ai.models.generateContent({
-            model: 'gemini-2.0-flash',
-            contents: `${promptText}\n\nUser Question: ${input}`,
+          model: "gemini-3-flash-preview",
+          contents: `${promptText}\n\nUser Question: ${input}`,
         });
         
         if (response.text) {
