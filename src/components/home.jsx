@@ -69,10 +69,40 @@ const Home = () => {
     setTimeout(() => setIsLoaded(true), 500);
   }, []);
 
+  useEffect(() => {
+    const sectionIds = ['home', 'about', 'projects', 'skills', 'expertise', 'contact'];
+    const sectionElements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!sectionElements.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry?.target?.id) {
+          setActiveSection(visibleEntry.target.id);
+        }
+      },
+      {
+        threshold: [0.3, 0.6],
+        rootMargin: '-20% 0px -55% 0px'
+      }
+    );
+
+    sectionElements.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       setActiveSection(sectionId);
       setIsNavOpen(false);
     }
@@ -100,7 +130,7 @@ const Home = () => {
       />
 
       {/* Sections */}
-      <HeroSection setIsChatOpen={setIsChatOpen} />
+      <HeroSection />
       
       <AboutSection />
       <ProjectsSection 

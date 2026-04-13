@@ -4,12 +4,12 @@ import { FaChevronRight } from 'react-icons/fa';
 const TypingAnimation = () => {
   
   const messages = useMemo(() => [
-    "Building Scalable Solutions.",
-    "Driving AI Innovation.",
-    "Optimizing Performance.",
-    "Crafting Robust Systems.",
-    "Delivering Impactful Tech.",
-    "Accelerating Development."
+    "Building Agentic AI Systems.",
+    "Orchestrating Multi-Agent Workflows.",
+    "Implementing Advanced RAG.",
+    "Deploying Deep Learning Models.",
+    "Architecting Cloud-Native Tech.",
+    "Scaling Robust MLOps Pipelines."
   ], []);
 
   const [displayText, setDisplayText] = useState('');

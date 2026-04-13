@@ -33,6 +33,7 @@ To run this project locally, follow these steps:
     REACT_APP_EMAILJS_SERVICE_ID=your_actual_emailjs_service_id
     REACT_APP_EMAILJS_TEMPLATE_ID=your_actual_emailjs_template_id
     REACT_APP_EMAILJS_USER_ID=your_actual_emailjs_user_id
+    REACT_APP_RESUME_URL=/resume/Dhia_Shayeb_Resume.pdf
     ```
 
 4.  **Start the development server:**
@@ -40,6 +41,22 @@ To run this project locally, follow these steps:
     npm start
     ```
     This will open the portfolio in your browser (usually `http://localhost:3000`).
+
+## Update Resume Download (Step-by-Step)
+
+Use this whenever you want to replace your downloadable resume.
+
+1. Put the new PDF in `public/resume/`.
+2. Keep the same file name `Dhia_Shayeb_Resume.pdf` to avoid changing config.
+3. If you want a different name/path, update `REACT_APP_RESUME_URL` in `.env`.
+4. Restart the dev server (`npm start`) after changing `.env` values.
+5. Test the button in the hero section and verify the correct file downloads.
+
+Example `.env` value:
+
+```
+REACT_APP_RESUME_URL=/resume/Dhia_Shayeb_Resume_2026.pdf
+```
 
 ## Available Scripts
 

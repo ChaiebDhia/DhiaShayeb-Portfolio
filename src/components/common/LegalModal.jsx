@@ -1,17 +1,54 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FaTimes, FaFileContract, FaLock } from 'react-icons/fa';
 import './LegalModal.scss';
 
 const LegalModal = ({ showTerms, showPrivacy, setShowTerms, setShowPrivacy }) => {
   const currentModal = showTerms ? 'terms' : showPrivacy ? 'privacy' : null;
+  const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (!currentModal) return undefined;
+
+    closeButtonRef.current?.focus();
+
+    const closeCurrentModal = () => {
+      if (currentModal === 'terms') {
+        setShowTerms(false);
+      } else {
+        setShowPrivacy(false);
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        closeCurrentModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [currentModal, setShowPrivacy, setShowTerms]);
 
   if (!currentModal) return null;
 
+  const closeCurrentModal = () => {
+    if (currentModal === 'terms') {
+      setShowTerms(false);
+    } else {
+      setShowPrivacy(false);
+    }
+  };
+
   return (
-    <div className="legal-modal">
-      <div className="modal-backdrop" onClick={() => currentModal === 'terms' ? setShowTerms(false) : setShowPrivacy(false)}></div>
+    <div className="legal-modal" role="dialog" aria-modal="true" aria-label={currentModal === 'terms' ? 'Terms of Service' : 'Privacy Protection'}>
+      <div className="modal-backdrop" onClick={closeCurrentModal}></div>
       <div className="modal-content">
-        <button className="modal-close" onClick={() => currentModal === 'terms' ? setShowTerms(false) : setShowPrivacy(false)}>
+        <button
+          ref={closeButtonRef}
+          className="modal-close"
+          onClick={closeCurrentModal}
+          aria-label="Close legal dialog"
+        >
           <FaTimes />
         </button>
         <h3>
