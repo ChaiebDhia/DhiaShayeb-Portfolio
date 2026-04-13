@@ -3,7 +3,6 @@ import {
   FaEnvelope, FaLinkedin, FaGithub, FaPaperPlane, FaRocket, 
   FaCoffee, FaPhone, FaMapMarkerAlt 
 } from 'react-icons/fa';
-import emailjs from 'emailjs-com';
 import './ContactSection.scss';
 import { motion } from 'framer-motion';
 
@@ -29,28 +28,23 @@ const ContactSection = ({ activeSection }) => {
     setSubmitStatus(null);
   
     try {
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        inquiry_type: formData.inquiryType === 'recruitment' ? 'Recruitment' : 'Project',
-        company: formData.company || 'N/A',
-        position: formData.position || 'N/A',
-        project_type: formData.projectType || 'N/A',
-        budget: formData.budget || 'Not specified',
-        timeline: formData.timeline || 'Not specified',
-        message: formData.message
-      };
-  
-      await emailjs.send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        templateParams,
-        process.env.REACT_APP_EMAILJS_USER_ID
-      );
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to send message');
+      }
   
       setSubmitStatus({
         success: true,
-        message: 'Message sent successfully! I will get back to you soon.'
+        message: 'Message sent successfully! A confirmation email has been dispatched.'
       });
   
       // Auto-remove success message after 5 seconds
@@ -71,10 +65,10 @@ const ContactSection = ({ activeSection }) => {
         message: ''
       });
     } catch (error) {
-      console.error('Email sending error:', error);
+      console.error('SMTP sending error:', error);
       setSubmitStatus({
         success: false,
-        message: 'Failed to send message. Please try again or contact me directly at dhiashayeb6@gmail.com'
+        message: 'Failed to send message via SMTP. Please check your network or contact directly at dhiashayeb6@gmail.com'
       });
     } finally {
       setIsSubmitting(false);
