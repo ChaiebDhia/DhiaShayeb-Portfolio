@@ -115,7 +115,7 @@ const ProjectsSection = ({ setShowImageModal, setCurrentImage }) => {
         "Angular Frontend",
         "System Schematic"
       ],
-      image: "/images/Microservices.png",
+      image: "/images/work in progress.jpg",
       viewImageButton: true
     },
     {
