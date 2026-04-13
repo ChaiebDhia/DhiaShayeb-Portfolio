@@ -41,7 +41,7 @@ const ProjectsSection = ({ setShowImageModal, setCurrentImage }) => {
         "Active Learning Loop",
         "Automated CI/CD"
       ],
-      image: "/images/DeepCoin.png",
+      image: "/images/deepcoin.png",
       viewImageButton: true
     },
     {
