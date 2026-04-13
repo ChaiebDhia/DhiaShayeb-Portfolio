@@ -462,15 +462,14 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
 }
 
 @media (max-width: 768px) {
-  .about-visual .tech-showcase { width: 320px; height: 320px; transform: scale(0.85); 
-    
-    .tech-orbit {
-      &.frontend-orbit { width: 180px; height: 180px; }
-      &.backend-orbit { width: 240px; height: 240px; }
-      &.mobile-orbit { width: 300px; height: 300px; }
-      &.devops-orbit { width: 320px; height: 320px; }
-      &.cloud-orbit { width: 420px; height: 420px; }
-    }
+    .about-visual .tech-showcase { width: 360px; height: 360px; transform: scale(0.9); 
+      
+      .tech-orbit {
+        &.frontend-orbit { width: 140px; height: 140px; }
+        &.backend-orbit { width: 190px; height: 190px; }
+        &.mobile-orbit { width: 240px; height: 240px; }
+        &.devops-orbit { width: 290px; height: 290px; }
+        &.cloud-orbit { width: 340px; height: 340px; }
   }
 }
 
@@ -1021,4 +1020,4 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
     .about-visual .tech-showcase { width: 280px; height: 280px; transform: scale(0.70);
     }
   }
-}
+}}
