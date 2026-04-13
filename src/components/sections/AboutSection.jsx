@@ -143,9 +143,11 @@ const AboutSection = () => {
   
                   <div className="tech-orbit devops-orbit">
                     <div className="tech-node">DEVOPS</div>
-                <div className="tech-orbit cloud-orbit">
-                  <div className="tech-node ai">AI/ML</div>
-                </div>
+                  </div>
+  
+                  <div className="tech-orbit cloud-orbit">
+                    <div className="tech-node ai">AI/ML</div>
+                  </div>
 
                 {/* Animated connection lines */}
                 <div className="connection-lines">
