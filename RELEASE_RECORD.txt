@@ -1,4 +1,4 @@
-ENTERPRISE PORTFOLIO SYSTEM RECORD
+PORTFOLIO SYSTEM RECORD
 Document Version: 1.0
 Date: April 13, 2026
 System: Dhia Shayeb Portfolio Application
