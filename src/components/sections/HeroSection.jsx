@@ -4,14 +4,24 @@ import TypingAnimation from '../TypingAnimation';
 import './HeroSection.scss';
 import { motion } from 'framer-motion';
 import NeuralNetwork from '../animations/NeuralNetwork';
-const HeroSection = ({ setIsChatOpen }) => {
+const HeroSection = () => {
+  const resumeUrl = process.env.REACT_APP_RESUME_URL || 'https://drive.google.com/uc?export=download&id=1t1Tc83pxiAMMV9zd8_NJ3S7IRxF_v9zB';
+
   return (
     <motion.section
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.5 }} id="home" className="hero-section">
-<NeuralNetwork />  
-  <div className="hero-content">
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }} 
+      id="home" 
+      className="hero-section"
+    >
+      <div className="hero-bg-orbs">
+        <div className="orb orb-1"></div>
+        <div className="orb orb-2"></div>
+        <div className="orb orb-3"></div>
+      </div>
+      <NeuralNetwork />  
+      <div className="hero-content">
     <div className="hero-text-container">
       <div className="hero-text">
       <div className="hero-greeting">
@@ -31,19 +41,18 @@ const HeroSection = ({ setIsChatOpen }) => {
           <div className="loading-bar"></div>
           <h2 className="hero-subtitle">
             <FaBrain className="subtitle-icon" />
-            Full-Stack Engineer, AI/ML Solutions
+            AI Engineer & Full-Stack Architect
           </h2>
         </div>
         
         <p className="hero-description">
-          Pioneering the future of technology through innovative AI integration, 
-          scalable architecture, and next-generation web solutions. 
-          <span className="highlight">Building tomorrow's applications today.</span>
+          Product-oriented AI Engineer specializing in Agentic AI, RAG, Deep Learning, and Full-Stack delivery. 
+          <span className="highlight">Designing and deploying end-to-end AI systems.</span>
         </p>
         
         <div className="hero-cta">
         <a 
-          href="https://drive.google.com/uc?export=download&id=1t1Tc83pxiAMMV9zd8_NJ3S7IRxF_v9zB" 
+          href={resumeUrl}
           className="cta-button primary"
           download="Dhia_Shayeb_Resume.pdf" 
           target="_blank"

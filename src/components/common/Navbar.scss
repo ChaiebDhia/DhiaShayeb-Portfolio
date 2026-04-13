@@ -17,16 +17,11 @@ $gradient-dark: linear-gradient(135deg, rgba(13, 17, 38, 0.95) 0%, rgba(8, 12, 2
 $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $neon-blue);
 
 .navbar {
-    background: linear-gradient(
-      135deg, 
-      rgba(5, 7, 20, 0.519) 0%, 
-      rgba(9, 12, 35, 0.441) 50%, 
-      rgba(62, 0, 32, 0.5) 100%
-    );
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid rgba($neon-cyan, 0.1);
+    background: rgba(5, 7, 20, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     
     &.scrolled {
       background: rgba(5, 7, 20, 0.95);

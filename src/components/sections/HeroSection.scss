@@ -22,6 +22,62 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
     align-items: center;
     padding: 120px 40px;
     overflow: hidden;
+    background: radial-gradient(circle at 10% 20%, rgba(0, 50, 100, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(100, 0, 100, 0.05) 0%, transparent 50%);
+
+    .hero-bg-orbs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.15;
+        animation: floatOrb 20s infinite ease-in-out;
+      }
+
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: #9933ff;
+        top: -10%;
+        left: -10%;
+      }
+
+      .orb-2 {
+        width: 500px;
+        height: 500px;
+        background: #00f7ff;
+        bottom: -20%;
+        right: -10%;
+        animation-delay: -5s;
+        animation-duration: 25s;
+      }
+
+      .orb-3 {
+        width: 300px;
+        height: 300px;
+        background: #ff00cc;
+        top: 40%;
+        left: 60%;
+        animation-delay: -10s;
+        animation-duration: 18s;
+        opacity: 0.1;
+      }
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(100px, -50px) scale(1.1); }
+      66% { transform: translate(-50px, 100px) scale(0.9); }
+    }
   
     .hero-content {
       max-width: 1400px;
@@ -220,15 +276,18 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
         }
   
         &.primary {
-          background: linear-gradient(135deg, rgba($neon-cyan, 0.2), rgba($neon-blue, 0.2));
-          border-color: $neon-cyan;
-          color: $neon-cyan;
-  
+          background: rgba(0, 247, 255, 0.1);
+          border: 1px solid rgba(0, 247, 255, 0.4);
+          color: #e0e6ff;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 8px 32px 0 rgba(0, 247, 255, 0.15);
+
           &:hover {
-            background: $neon-cyan;
-            color: $bg-dark;
-            box-shadow: 0 0 30px rgba(0, 247, 255, 0.6);
-            transform: translateY(-2px);
+            background: rgba(0, 247, 255, 0.2);
+            color: #ffffff;
+            border-color: #00f7ff;
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.5), inset 0 0 20px rgba(0, 247, 255, 0.2);
+            transform: translateY(-2px) scale(1.02);
           }
         }
   
@@ -584,9 +643,11 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
   }
 
   .typing-container {
-    display: inline-block;
-    height: 24px;
-    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    height: auto;
+    overflow: visible;
   }
 }
 
@@ -598,10 +659,13 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
   color: $text-light;
   text-transform: uppercase;
   letter-spacing: 1px;
+  flex-wrap: wrap;
+  max-width: 100%;
   
   span {
-    display: inline-block;
-    white-space: nowrap;
+    display: inline;
+    white-space: normal;
+    word-break: break-word;
   }
 }
 
@@ -743,7 +807,7 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
     font-size: 0.8rem;
     padding: 5px 10px;
     border-radius: 4px;
-    white-space: nowrap;
+    white-space: normal;
     opacity: 0;
     pointer-events: none;
     transition: all 0.7s ease;
@@ -792,6 +856,16 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
 }
 
 @media (max-width: 768px) {
+  .typing-text {
+    font-size: 0.9rem;
+    white-space: normal;
+    text-align: center;
+    span {
+      white-space: normal;
+      word-wrap: break-word;
+    }
+  }
+
   .hero-cta {
     flex-direction: column;
     align-items: center !important; // Force center alignment

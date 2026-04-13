@@ -1,37 +1,137 @@
 import React, { useState } from 'react';
-import { FaProjectDiagram, FaEye, FaGithub,FaMagic,FaTimes } from 'react-icons/fa';
+import { FaProjectDiagram, FaEye, FaGithub, FaMagic } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './ProjectsSection.scss';
 
-const ProjectsSection = () => {
+const ProjectsSection = ({ setShowImageModal, setCurrentImage }) => {
   const [activeProject, setActiveProject] = useState(null);
-  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-  const [showImageModal, setShowImageModal] = useState(false);
-  const [currentImage, setCurrentImage] = useState('');
 
   const projects = [
     {
       id: 1,
-      title: "SkillSync AI Learning Platform",
-      subtitle: "MERN Stack Educational Platform with Gemini AI Integration",
-      description: "Created an innovative learning platform using the MERN stack with advanced AI features including real-time chat, live learning, certifications, and real-time translation. I worked in a group at Esprit, my college, to develop this project using sprints to showcase collaboration, soft skills, and Scrum methodology.",
+      title: "DeepCoin-Core",
+      subtitle: "Agentic AI + RAG + Deep Learning Platform",
+      description: "A comprehensive AI platform for archaeological coin classification, featuring a LangGraph workflow with 5 agents and hybrid RAG, deployed on a cloud-native Next.js 15 and FastAPI stack.",
       detailedDescription: `
-        SkillSync is a comprehensive educational platform that leverages cutting-edge AI technologies to enhance learning experiences. The platform was developed collaboratively at Esprit college using Scrum methodology and sprint-based development to demonstrate teamwork and project management skills.
+        DeepCoin-Core is a production-grade AI platform developed as my Graduation Project at YEBNI. It seamlessly combines Computer Vision, Agentic AI, and full-stack development to classify and analyze archaeological coins.
         
-        The platform features an AI Therapeutic Assistant that provides mental health support and guidance to learners. Real-time translation capabilities allow for instant translation of spoken and written content, breaking down language barriers in education.
+        The core intelligence relies on an EfficientNet-B3 deep learning model with 8x Test-Time Augmentation (TTA), achieving an 80.03% benchmark accuracy across 438 distinct classes. 
         
-        Document translation processes uploaded materials in multiple languages, while the Course Generator creates customized learning paths based on individual user needs. The Educational Resource Finder locates relevant materials for any topic, supported by a 24/7 AI Chatbot with voice capabilities for learning assistance and Q&A.
+        To enrich the analytical capabilities, I implemented a multi-agent orchestrated workflow using LangGraph. It features 5 specialized agents utilizing confidence-based routing and a Hybrid RAG approach (BM25 + Vector Search + Reciprocal Rank Fusion) backed by ChromaDB. This expands the knowledge base to 9,541 coin types and over 47,000 embedded vectors.
         
-        PDF processing capabilities automatically generate summaries of course materials and documents, complemented by Smart Scheduling that creates personalized learning schedules. The Roadmap Generator develops step-by-step learning plans, while the certification system awards credentials upon course completion.
+        The backend is powered by asynchronous Python via FastAPI, connected to PostgreSQL and Redis for robust data management and caching. The frontend is built on Next.js 15, offering a responsive analytical interface. Grad-CAM++ was integrated to provide explainability for the neural network predictions, and an Active Learning loop continually improves the model.
         
-        Real-time chat enables live communication between learners, and interactive live sessions provide workshops and collaborative learning opportunities. The platform uses MERN architecture with MongoDB, Express, React, and Node.js as its foundation.
+        The entire application is containerized using Docker Compose, monitored via MLflow, and hardened for production with robust API authentication, rate limiting, structured logs, and a CI/CD pipeline featuring 122 automated tests.
+      `,
+      tech: ["PyTorch", "LangGraph", "FastAPI", "Next.js 15", "ChromaDB", "Docker", "MLflow", "PostgreSQL"],
+      github: "https://github.com/ChaiebDhia/DeepCoin-Core",
+      live: "#",
+      category: "AI & Full-Stack",
+      status: "Production",
+      metrics: {
+        "Accuracy": "80.03%",
+        "Vectors Indexed": "47,705",
+        "Classes": "438"
+      },
+      features: [
+        "Multi-Agent Workflow", 
+        "Hybrid RAG (BM25+Vector)", 
+        "Image Classification (TTA)", 
+        "Grad-CAM Explainability",
+        "Active Learning Loop",
+        "Automated CI/CD"
+      ],
+      image: "/images/DeepCoin.png",
+      viewImageButton: true
+    },
+    {
+      id: 2,
+      title: "Automated DevOps Pipeline",
+      subtitle: "End-to-End CI/CD Implementation for Spring Boot",
+      description: "Designed and implemented a complete CI/CD pipeline incorporating 18 distinct stages that ensure code quality, security, and zero-downtime deployments.",
+      detailedDescription: `
+        Designed and implemented a complete CI/CD pipeline for a Spring Boot application following DevOps principles and industry best practices. The pipeline incorporates a comprehensive approach to software delivery automation.
+    
+        The pipeline architecture features 18 distinct stages. Environment preparation handles tool installation, source code management validates branches, and the build process includes comprehensive resolving via Maven.
         
-        Advanced integration includes Gemini AI API for natural language processing, WebSocket for real-time communication, JWT for secure authentication, and AWS S3 for document storage. The platform was designed to provide personalized, accessible education for all users while fostering collaboration and communication skills.
+        Quality assurance incorporates JUnit testing with JaCoCo code coverage reporting. Static analysis utilizes SonarQube scanning with quality gate enforcement. Artifact management leverages Nexus repository for versioned artifact storage.
+        
+        Containerization creates and validates Docker images for consistent deployment. Automated deployment handles rollout with zero-downtime strategies.
+        
+        The solution demonstrates full automation from commit to production, achieving average pipeline execution time under 2 minutes with 100% test coverage enforcement and a 99.98% deployment success rate.
+      `,
+      tech: ["Jenkins", "Docker", "SpringBoot", "Nexus", "SonarQube", "Grafana", "Prometheus"],
+      github: "https://github.com/ChaiebDhia/DevOps_SpringBoot",
+      live: "#",
+      category: "DevOps",
+      status: "Production",
+      metrics: {
+        "Pipeline Stages": "18",
+        "Avg Duration": "<2min",
+        "Success Rate": "99.98%"
+      },
+      features: [
+        "18-Stage Pipeline", 
+        "100% Test Coverage Requirement", 
+        "Static Analysis Gates", 
+        "Artifact Versioning",
+        "Zero-Downtime Deployment",
+        "Real-time Monitoring"
+      ],
+      image: "/images/DevOps.png",
+      viewImageButton: true
+    },
+    {
+      id: 3,
+      title: "Cloud-Native Microservices",
+      subtitle: "Scalable Architecture Platform",
+      description: "Implemented a robust microservices architecture featuring service discovery, API gateway, and seamless inter-service communication.",
+      detailedDescription: `
+        Developed a scalable, cloud-native microservices platform using the Spring Cloud ecosystem. The architecture emphasizes decoupled services, resilience, and high availability.
+        
+        The core infrastructure includes an API Gateway as the single entry point, Eureka for dynamic service discovery and registration, and Spring Cloud Config for centralized, externalized configuration management across all environments.
+        
+        The services communicate efficiently while persisting data to MySQL databases, all containerized via Docker for parity across dev, staging, and production.
+        
+        The frontend interface is built with Angular, providing a dynamic single-page application experience that consumes the distributed backend services transparently. This modular structure allows independent scaling of features and resilient failovers.
+      `,
+      tech: ["Spring Cloud", "Eureka", "API Gateway", "Angular", "MySQL", "Docker"],
+      github: "https://github.com/ChaiebDhia/Microservices",
+      live: "#",
+      category: "Architecture",
+      status: "Production",
+      metrics: {
+        "Architecture": "Microservices",
+        "Cloud Native": "Yes",
+        "Decoupled": "Yes"
+      },
+      features: [
+        "Service Discovery", 
+        "API Gateway", 
+        "Centralized Config", 
+        "Docker Containerization",
+        "Angular Frontend",
+        "Relational Persistence"
+      ],
+      image: "/images/Microservices.png",
+      viewImageButton: true
+    },
+    {
+      id: 4,
+      title: "SkillSync AI Learning Platform",
+      subtitle: "MERN Stack AI Educational Platform",
+      description: "Created an innovative learning platform using the MERN stack with advanced AI features including real-time chat, live learning, certifications, and translation.",
+      detailedDescription: `
+        SkillSync is a comprehensive educational platform that leverages cutting-edge AI technologies to enhance learning experiences. The platform was developed collaboratively at Esprit college using Scrum methodology.
+        
+        The platform features an AI Therapeutic Assistant, real-time translation capabilities, document processing, and a customized Course Generator. It serves educational resources integrated with a 24/7 AI Chatbot having voice capabilities.
+        
+        Real-time chat enables live communication between learners, and interactive live sessions provide workshops. The platform relies heavily on MERN architecture (MongoDB, Express, React, Node.js) combined with Gemini AI API for NLP tasks.
       `,
       tech: ["React", "Node.js", "MongoDB", "Express", "Gemini API", "WebSocket", "JWT", "AWS"],
       github: "https://github.com/InnovativeSquad-PI-4TWIN4/PiWebInovativeSquad.git",
       live: "#",
-      category: "AI Education",
+      category: "AI & Full-Stack",
       status: "Beta",
       metrics: {
         "AI Features": "8+",
@@ -44,82 +144,27 @@ const ProjectsSection = () => {
         "Therapeutic Assistant", 
         "Voice-Enabled Chatbot",
         "Smart Scheduling",
-        "Document Processing",
-        "Certifications",
-        "Live Learning"
+        "Document Processing"
       ],
       image: "/images/SkillSync.png",
       viewImageButton: true
     },
     {
-      id: 2,
-      title: "Automated DevOps Pipeline",
-      subtitle: "End-to-End CI/CD Implementation for SpringBoot",
-      description: "Designed and implemented a complete CI/CD pipeline for a SpringBoot application following DevOps principles. The pipeline incorporates 18 distinct stages that ensure code quality, security, and deployment reliability.",
+      id: 5,
+      title: "Assistive Voice Robotics",
+      subtitle: "Arduino & IoT Healthcare Prototype",
+      description: "Prototyped a voice-controlled assistive technology system using an Arduino-based wheelchair simulator paired with a custom voice assistant.",
       detailedDescription: `
-        Designed and implemented a complete CI/CD pipeline for a SpringBoot application following DevOps principles and industry best practices. The pipeline incorporates a comprehensive approach to software delivery automation.
-    
-        The pipeline architecture features 18 distinct stages that ensure code quality, security, and deployment reliability throughout the development lifecycle. Environment preparation handles tool installation and configuration, while source code management performs Git checkout with branch validation.
+        Developed a voice-controlled system utilizing an Arduino-based prototype simulating a wheelchair, paired with a custom voice assistant to enhance patient autonomy in healthcare.
         
-        The build process includes Maven clean, compile, and package operations with comprehensive dependency resolution. Quality assurance incorporates JUnit testing with JACOCO code coverage reporting to maintain high code standards.
+        The modular approach allows for the Arduino prototype to be replaced with a real wheelchair, smart home system, or industrial equipment. It supports natural voice command translations mapped through IoT network protocols.
         
-        Static analysis utilizes SonarQube scanning with quality gate enforcement to catch potential issues early. Artifact management leverages Nexus repository for versioned artifact storage and distribution.
-        
-        Containerization creates and validates Docker images for consistent deployment across environments. Automated deployment handles rollout to containerized environments with zero-downtime strategies.
-        
-        Monitoring integration includes Portainer for container management and Watchtower for automatic updates. Email notification systems alert stakeholders of pipeline status changes and critical events.
-        
-        The solution demonstrates full automation from code commit to production deployment, achieving average pipeline execution time under 2 minutes with 100% test coverage enforcement. Static code analysis maintains zero critical issues while automated rollback capabilities ensure system reliability.
-        
-        Technical highlights include declarative Jenkins pipeline with parallel stage execution, infrastructure-as-code principles for environment consistency, and immutable artifacts through Nexus repository. Container orchestration includes health checks, security scanning at every stage, and comprehensive monitoring through Grafana dashboards.
-      `,
-      tech: ["Jenkins", "Docker", "SpringBoot", "Nexus", "SonarQube", "JUnit", "Grafana", "Prometheus", "Portainer", "Watchtower", "JaCoCo"],
-      github: "https://github.com/ChaiebDhia/DevOps_SpringBoot.git",
-      live: "#",
-      category: "DevOps",
-      status: "Production",
-      metrics: {
-        "Pipeline Stages": "18",
-        "Avg Duration": "<2min",
-        "Success Rate": "100%"
-      },
-      features: [
-        "Automated CI/CD Pipeline", 
-        "Code Quality Gates", 
-        "Container Orchestration", 
-        "Artifact Versioning",
-        "Auto-healing Infrastructure",
-        "Real-time Monitoring"
-      ],
-      image: "/images/DevOps.png",
-      viewImageButton: true
-    },
-    {
-      id: 3,
-      title: "Voice-Controlled Assistive Tech",
-      subtitle: "Arduino & IoT Prototype for Accessibility",
-      description: "Prototyping Innovation: Voice-Controlled Assistive Tech with Arduino & IoT. A voice-controlled system using an Arduino-based prototype paired with a custom voice assistant.",
-      detailedDescription: `
-        Prototyping Innovation: Voice-Controlled Assistive Tech with Arduino & IoT represents a comprehensive approach to accessibility technology development.
-        
-        Developed a voice-controlled system using an Arduino-based prototype simulating a wheelchair, paired with a custom voice assistant. While initially designed to enhance patient autonomy in healthcare, this solution demonstrates broader applications across multiple domains.
-        
-        The modular design allows the Arduino prototype to be replaced with real wheelchairs, smart home devices, or industrial equipment, making it adaptable for healthcare, smart cities, logistics, and manufacturing environments.
-        
-        Voice control capabilities enable users to intuitively navigate environments, control PC operations, and manage IoT devices such as lights and appliances through natural voice commands. The scalable architecture follows layered IoT principles including perception, network, and application layers for seamless integration with diverse hardware systems.
-        
-        Beyond healthcare applications, this project serves as a proof-of-concept for voice-driven automation in smart homes, providing control systems for elderly and disabled individuals. Industrial IoT applications include hands-free operation in warehouses and factories, while educational applications offer assistive learning tools for students with mobility challenges.
-        
-        The technical implementation combines Arduino hardware with 4WD robot car prototype, sensors, and Bluetooth modules for connectivity. Software development utilized Python for voice assistant functionality, UML-designed workflows, and IoT communication protocols.
-        
-        User-centric design prioritized accessibility with voice control and GUI fallback options for diverse user needs. Future development explores AI-driven multilingual support for Arabic, French, and English, along with 360-degree obstacle detection and cloud integration to bypass throttling limitations.
-        
-        The ultimate goal is creating a universal voice-control platform adaptable to any domain, demonstrating the potential for voice technology to revolutionize human-computer interaction across industries.
+        The technical foundation uses Python on the software side handling NLP mapping, and Arduino C++ to control motors and Bluetooth communication securely.
       `,
       tech: ["Arduino", "Python", "Bluetooth", "Voice Recognition", "IoT", "Windows API"],
       github: "https://github.com/ChaiebDhia/Voice-Controlled-Assistive-Tech-with-Arduino-IoT.git",
       live: "#",
-      category: "IoT Prototype",
+      category: "IoT Architecture",
       status: "Prototype",
       metrics: {
         "Hardware Modules": "8+",
@@ -138,31 +183,21 @@ const ProjectsSection = () => {
       viewImageButton: true
     },
     {
-      id: 4,
-      title: "Interactive Portfolio",
-      subtitle: "React-based Technical Showcase",
-      description: "This responsive portfolio demonstrates modern web development techniques with custom animations, neural network visualizations, and AI integration.",
+      id: 6,
+      title: "Interactive UX Portfolio",
+      subtitle: "React WebGL Capabilities Showcase",
+      description: "Engineered this production-ready technical portfolio featuring React, Framer Motion, and raw Canvas API WebGL integrations to highlight deep frontend expertise.",
       detailedDescription: `
-        This portfolio represents a comprehensive showcase of frontend development skills and technical creativity, demonstrating advanced web development capabilities through interactive design elements.
+        This architectural portfolio represents a comprehensive visualization of frontend development skills and 3D web logic modeling. 
         
-        The portfolio features an interactive neural network visualization using Canvas API technology, creating dynamic visual representations of complex algorithms. Circuit board animated backgrounds with dynamic particle effects provide an engaging technological aesthetic that reflects the technical nature of the content.
+        Unlike standard template websites, it leverages dynamic Neural Network and Circuit Board backgrounds utilizing algorithmic particle calculations drawn to a raw Canvas layer. This provides extreme performance over traditional DOM animations.
         
-        AI-powered assistant integration enables professional inquiries and interactive user engagement. Responsive design ensures optimal viewing across all devices, complemented by smooth animations and transitions that enhance user experience.
-        
-        The project showcase section provides detailed technical breakdowns of each project, allowing visitors to understand the depth and complexity of development work. Professional contact form integration with email functionality facilitates seamless communication.
-        
-        Technical implementation utilizes React with modern hooks for state management and component architecture. Framer Motion provides smooth animations and transitions, while custom neural network visualization algorithms create unique interactive elements.
-        
-        Dynamic circuit board animation leverages WebGL technology for performance optimization. EmailJS integration handles contact form functionality without requiring backend infrastructure, while responsive design follows mobile-first principles.
-        
-        Performance optimizations include efficient rendering of complex animations, lazy loading strategies for improved loading times, and optimized asset management. Smooth scroll behavior and intuitive navigation enhance user experience across all interactions.
-        
-        This project demonstrates the ability to create engaging, interactive web experiences while maintaining clean code architecture and optimal performance standards. The portfolio serves as both a technical demonstration and a professional showcase of development capabilities.
+        It serves both as an interactive AI chat interface and a WebGL hardware-accelerated demonstration running on a standard React foundation.
       `,
       tech: ["React", "Framer Motion", "Canvas API", "SCSS", "EmailJS", "WebGL", "Responsive Design"],
       github: "https://github.com/ChaiebDhia/DhiaShayeb-Portfolio.git",
       live: "#",
-      category: "Web Development",
+      category: "Frontend",
       status: "Production",
       metrics: {
         "Interactive Elements": "15+",
@@ -182,19 +217,6 @@ const ProjectsSection = () => {
     }
   ];
 
-  const handleProjectNavigation = (direction) => {
-    setActiveProject(null);
-    if (direction === 'prev') {
-      setCurrentProjectIndex(prev => 
-        prev === 0 ? projects.length - 1 : prev - 1
-      );
-    } else {
-      setCurrentProjectIndex(prev => 
-        prev === projects.length - 1 ? 0 : prev + 1
-      );
-    }
-  };
-
   return (
     <motion.section
           initial={{ opacity: 0 }}
@@ -211,19 +233,11 @@ const ProjectsSection = () => {
                 </div>
               </div>
               
-              <div className="projects-container">
-                <button 
-                  className="project-nav prev"
-                  onClick={() => handleProjectNavigation('prev')}
-                >
-                  &lt;
-                </button>
-                
-                <div className="projects-slider" style={{ transform: `translateX(-${currentProjectIndex * 100}%)` }}>
+              <div className="projects-grid-container">
                   {projects.map((project, index) => (
                     <div 
                       key={project.id} 
-                      className={`project-slide ${index === currentProjectIndex ? 'active' : ''}`}
+                      className="project-slide active"
                     >
                       <div className="project-card">
                         <div className="project-image">
@@ -334,32 +348,7 @@ const ProjectsSection = () => {
                       </div>
                     </div>
                   ))}
-                </div>
-                
-                <button 
-                  className="project-nav next"
-                  onClick={() => handleProjectNavigation('next')}
-                >
-                  &gt;
-                </button>
               </div>
-            </div>
-            <div>
-                {showImageModal && (
-                  <div className="image-modal">
-                    <div className="modal-backdrop" onClick={() => setShowImageModal(false)}></div>
-                    <div className="modal-content">
-                      <button className="modal-close" onClick={() => setShowImageModal(false)}>
-                        <FaTimes />
-                      </button>
-                      <img 
-                        src={currentImage} 
-                        alt="Project Preview" 
-                        className="modal-image" 
-                      />
-                    </div>
-                  </div>
-                )}
             </div>
             </motion.section>
             

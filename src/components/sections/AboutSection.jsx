@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-  FaLightbulb, FaRocket, FaCode, FaMobileAlt, FaGlobe, 
+  FaLightbulb, FaRocket, FaCode, FaGlobe, 
   FaUniversity, FaMicrochip, FaPaperPlane ,FaBrain,FaCogs
 } from 'react-icons/fa';
 import './AboutSection.scss';
@@ -16,10 +16,10 @@ const AboutSection = () => {
           <div className="section-header">
             <div className="section-title">
               <FaBrain className="section-icon" />
-              <h2>TECHNICAL ARCHITECT</h2>
+              <h2>AI ENGINEER & FULL-STACK ARCHITECT</h2>
             </div>
             <div className="section-subtitle">
-              Engineering solutions across the digital spectrum
+              Orchestrating intelligent systems and scalable architectures
             </div>
           </div>
           
@@ -31,7 +31,7 @@ const AboutSection = () => {
                   Technical Philosophy
                 </h3>
                 <p className="bio-content">
-                  I solve problems through code, regardless of platform or language. With expertise spanning <strong>web development (MERN/MEAN, Laravel, .NET)</strong>, <strong>mobile applications (Flutter)</strong>, and <strong>system programming (Python, Java)</strong>, I adapt my toolkit to project requirements. My approach combines rigorous computer science fundamentals with practical implementation skills to deliver robust, scalable solutions.
+                  I design and deploy end-to-end AI systems, bridging the gap between cutting-edge research and production-ready applications. My expertise spans <strong>Agentic AI orchestration (LangGraph)</strong>, <strong>Advanced RAG (ChromaDB, Hybrid Search)</strong>, and <strong>Deep Learning (PyTorch, CV)</strong>. By combining rigorous ML methodologies with robust <strong>Full-Stack engineering (MERN, MEAN, Next.js, FastAPI)</strong> and <strong>Mobile (Flutter)</strong>, I deliver solutions that are not only intelligent but structurally sound, scalable, and secure.
                 </p>
               </div>
               
@@ -41,7 +41,7 @@ const AboutSection = () => {
                   Development Approach
                 </h3>
                 <p className="bio-content">
-                  Whether building responsive web interfaces, cross-platform mobile apps, or backend systems, I prioritize clean architecture and maintainable code. My experience ranges from startup prototypes at Bright Soft to enterprise solutions at Tunisie Telecom, giving me perspective on projects of all scales. I thrive in agile environments and continuously expand my technical repertoire to meet evolving challenges.
+                  Whether building multi-agent LLM workflows, training neural networks, or configuring CI/CD pipelines, I prioritize observability, modularity, and quantifiable impact. My experience ranges from developing deep learning platforms like DeepCoin-Core to automating enterprise telecom infrastructures. I thrive in cloud-native environments (AWS, Docker, Jenkins) and continuously push boundaries to engineer the next generation of AI-driven applications.
                 </p>
               </div>
               
@@ -49,20 +49,20 @@ const AboutSection = () => {
                 <div className="highlight-grid">
                   <div className="highlight-item">
                     <div className="highlight-icon-container">
-                      <FaCode className="highlight-icon" />
+                      <FaBrain className="highlight-icon" />
                     </div>
                     <div className="highlight-content">
-                      <h4>Full-Stack Versatility</h4>
-                      <p>Frontend to DevOps with multiple tech stacks</p>
+                      <h4>Agentic AI Systems</h4>
+                      <p>Multi-agent orchestration & advanced RAG</p>
                     </div>
                   </div>
                   <div className="highlight-item">
                     <div className="highlight-icon-container">
-                      <FaMobileAlt className="highlight-icon" />
+                      <FaCode className="highlight-icon" />
                     </div>
                     <div className="highlight-content">
-                      <h4>Platform Agnostic</h4>
-                      <p>Web, mobile, desktop, and cloud solutions</p>
+                      <h4>Full-Stack Mastery</h4>
+                      <p>FastAPI, Next.js 15, and asynchronous Python</p>
                     </div>
                   </div>
                   <div className="highlight-item">
@@ -70,8 +70,8 @@ const AboutSection = () => {
                       <FaGlobe className="highlight-icon" />
                     </div>
                     <div className="highlight-content">
-                      <h4>Global Delivery</h4>
-                      <p>Remote collaboration across timezones</p>
+                      <h4>Cloud & MLOps</h4>
+                      <p>AWS, Docker, Jenkins, and MLflow pipelines</p>
                     </div>
                   </div>
                 </div>

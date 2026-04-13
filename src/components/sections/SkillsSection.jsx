@@ -6,16 +6,18 @@ import './SkillsSection.scss';
 
 const SkillsSection = () => {
   const skills = [
-    { name: "MERN Stack", icon: <SiMongodb />, level: 94, category: "Full Stack" },
-    { name: "MEAN Stack", icon: <FaCode />, level: 90, category: "Full Stack" },
-    { name: "Next.js", icon: <FaReact />, level: 96, category: "Frontend" },
-    { name: "Flutter", icon: <FaMobileAlt />, level: 88, category: "Mobile" },
-    { name: "Python & AI/ML", icon: <FaPython />, level: 91, category: "AI/ML" },
-    { name: "MongoDB & SQL", icon: <SiMongodb />, level: 89, category: "Database" },
-    { name: "AWS & Cloud", icon: <FaAws />, level: 87, category: "Cloud" },
-    { name: "Docker & K8s", icon: <FaDocker />, level: 85, category: "DevOps" },
-    { name: "TensorFlow", icon: <SiTensorflow />, level: 83, category: "AI/ML" },
-    { name: "Microservices", icon: <FaMicrochip />, level: 90, category: "Architecture" }
+    { name: "Agentic AI & LLMs", icon: <FaPython />, level: 96, category: "AI/ML" },
+    { name: "RAG & Vector DBs", icon: <SiMongodb />, level: 94, category: "AI/ML Data" },
+    { name: "PyTorch & OpenCV", icon: <SiTensorflow />, level: 90, category: "Deep Learning" },
+    { name: "FastAPI & Python", icon: <FaCode />, level: 95, category: "Backend" },
+    { name: "Next.js 15 & React", icon: <FaReact />, level: 93, category: "Frontend" },
+    { name: "MERN/MEAN Stacks", icon: <SiMongodb />, level: 94, category: "Full Stack" },
+    { name: "Flutter & Mobile", icon: <FaMobileAlt />, level: 88, category: "Mobile" },
+    { name: "Docker & CI/CD", icon: <FaDocker />, level: 92, category: "DevOps" },
+    { name: "AWS & Cloud-Native", icon: <FaAws />, level: 88, category: "Cloud" },
+    { name: "PostgreSQL & Redis", icon: <SiMongodb />, level: 89, category: "Data" },
+    { name: "LangGraph Workflows", icon: <FaMicrochip />, level: 95, category: "Architecture" },
+    { name: "MLflow & Observability", icon: <FaCode />, level: 85, category: "MLOps" }
   ];
 
   return (
