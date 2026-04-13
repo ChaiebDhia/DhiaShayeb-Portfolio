@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   FaMicrochip, FaLightbulb, FaCertificate, FaProjectDiagram, FaGithub, 
-  FaCloud, FaMagic, FaCode, FaGlobe, FaBolt, FaHandshake 
+  FaCloud, FaCode, FaBolt 
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './ExpertiseSection.scss';
@@ -24,46 +24,99 @@ const ExpertiseSection = () => {
               </div>
               
               <div className="expertise-grid">
-                {/* Technical Certifications Column */}
-                <div className="expertise-column">
-                  <div className="column-title">
-                    <FaMicrochip className="column-icon" />
-                    <h3>Technical Certifications</h3>
-                  </div>
-                  
-                  <div className="expertise-list">
-                    <div className="expertise-item">
-                      <div className="item-header">
-                        <div className="item-info">
-                          <div className="item-title">
-                            <FaCertificate className="item-icon" />
-                            <h4>Scrum Fundamentals</h4>
+{/* Technical & Analytical Capabilities Column */}
+                  <div className="expertise-column">
+                    <div className="column-title">
+                      <FaMicrochip className="column-icon" />
+                      <h3>AI & Technical Expertise</h3>
+                    </div>
+                    
+                    <div className="expertise-list">
+                      <div className="expertise-item">
+                        <div className="item-header">
+                          <div className="item-info">
+                            <div className="item-title">
+                              <FaCertificate className="item-icon" />
+                              <h4>Agentic AI & LLMs</h4>
+                            </div>
+                            <div className="item-subtitle">LangGraph • Prompt Engineering • LLMs</div>
+                            <div className="item-description">
+                              Mastery in orchestrating multi-agent systems, fallback strategies, and conditional routing using LangGraph. Proven ability to combat hallucinations via grounding.
+                            </div>
                           </div>
-                          <div className="item-subtitle">Agile Methodology & Project Management</div>
-                          <div className="item-description">
-                            Certified in Scrum principles, sprint planning, and agile development practices for efficient project delivery.
-                          </div>
+                          <div className="verification-badge">Specialist</div>
                         </div>
-                        <div className="verification-badge">Certified</div>
+                        <div className="item-details">
+                          <div className="detail-tags">
+                            <span className="tag">LangGraph</span>
+                            <span className="tag">LLaMA 3</span>
+                            <span className="tag">Prompt Engineering</span>
+                            <span className="tag">Multi-Agent</span>
+                          </div>
+                          <div className="detail-year">2026</div>
+                        </div>
+                        <div className="expertise-glow"></div>
                       </div>
-                      <div className="item-details">
-                        <div className="detail-tags">
-                          <span className="tag">Scrum</span>
-                          <span className="tag">Agile</span>
-                          <span className="tag">Sprint Planning</span>
+                      
+                      <div className="expertise-item">
+                        <div className="item-header">
+                          <div className="item-info">
+                            <div className="item-title">
+                              <FaBolt className="item-icon" />
+                              <h4>Advanced RAG Systems</h4>
+                            </div>
+                            <div className="item-subtitle">Hybrid Search • Vector Databases • RRF</div>
+                            <div className="item-description">
+                              Architecting dense retrieval pipelines using ChromaDB and blending BM25 with exact-match signals through Reciprocal Rank Fusion for perfect contextual injections.
+                            </div>
+                          </div>
+                          <div className="verification-badge">Expert</div>
                         </div>
-                        <div className="detail-year">2024</div>
+                        <div className="item-details">
+                          <div className="detail-tags">
+                            <span className="tag">ChromaDB</span>
+                            <span className="tag">RAG</span>
+                            <span className="tag">BM25</span>
+                            <span className="tag">Vector Search</span>
+                          </div>
+                          <div className="detail-year">2026</div>
+                        </div>
+                        <div className="expertise-glow"></div>
+                      </div>
+                      
+                      <div className="expertise-item">
+                        <div className="item-header">
+                          <div className="item-info">
+                            <div className="item-title">
+                              <FaCode className="item-icon" />
+                              <h4>Full-Stack MERN & Next.js</h4>
+                            </div>
+                            <div className="item-subtitle">FastAPI • React • Next.js 15 • Node.js</div>
+                            <div className="item-description">
+                              Building end-to-end monolithic and microservices structures, implementing secure APIs, load balancing via Nginx, and wrapping everything smoothly in Next.js 15 frontends.
+                            </div>
+                          </div>
+                          <div className="verification-badge">Architect</div>
+                        </div>
+                        <div className="item-details">
+                          <div className="detail-tags">
+                            <span className="tag">Next.js 15</span>
+                            <span className="tag">FastAPI</span>
+                            <span className="tag">MERN/MEAN</span>
+                            <span className="tag">Web Vitals</span>
+                          </div>
+                          <div className="detail-year">2026</div>
                       </div>
                       <div className="expertise-glow"></div>
                     </div>
                   </div>
                 </div>
                 
-                {/* Professional Expertise Column */}
+                {/* Professional Experience Column */}
                 <div className="expertise-column">
                   <div className="column-title">
                     <FaLightbulb className="column-icon" />
-                    <h3>Professional Expertise</h3>
+                    <h3>Professional Experience</h3>
                   </div>
                   
                   <div className="expertise-list">
@@ -71,22 +124,48 @@ const ExpertiseSection = () => {
                       <div className="item-header">
                         <div className="item-info">
                           <div className="item-title">
-                            <FaProjectDiagram className="item-icon" />
-                            <h4>Microservices Architecture</h4>
+                            <FaMicrochip className="item-icon" />
+                            <h4>AI & Full-Stack Engineer</h4>
                           </div>
-                          <div className="item-subtitle">Distributed Systems & MSA Implementation</div>
+                          <div className="item-subtitle">YEBNI • Aug 2024 - Present</div>
                           <div className="item-description">
-                            Comprehensive expertise in microservices architecture design, implementation, and deployment with modern DevOps practices.
+                            Architecting scalable AI solutions and robust web applications. Integrating large language models and modern frameworks to drive enterprise automation and streamline operations.
                           </div>
                         </div>
-                        <div className="verification-badge">Specialist</div>
+                        <div className="verification-badge">Engineer</div>
                       </div>
                       <div className="item-details">
                         <div className="detail-tags">
-                          <span className="tag">API Gateway</span>
-                          <span className="tag">Service Discovery</span>
-                          <span className="tag">Docker</span>
-                          <span className="tag">Security</span>
+                          <span className="tag">Agentic AI</span>
+                          <span className="tag">Next.js</span>
+                          <span className="tag">Python</span>
+                          <span className="tag">LLMs</span>
+                        </div>
+                        <div className="detail-year">2024</div>
+                      </div>
+                      <div className="expertise-glow"></div>
+                    </div>
+                    
+                    <div className="expertise-item">
+                      <div className="item-header">
+                        <div className="item-info">
+                          <div className="item-title">
+                            <FaProjectDiagram className="item-icon" />
+                            <h4>Software Engineer Intern</h4>
+                          </div>
+                          <div className="item-subtitle">Tunisia Telecom • Jan 2024 - May 2024</div>
+                          <div className="item-description">
+                            Developed internal telecommunication management tools. Optimized database architectures and implemented secure API microservices for high-availability systems.
+                          </div>
+                        </div>
+                        <div className="verification-badge">Intern</div>
+                      </div>
+                      <div className="item-details">
+                        <div className="detail-tags">
+                          <span className="tag">Microservices</span>
+                          <span className="tag">Backend</span>
+                          <span className="tag">SQL</span>
+                          <span className="tag">Node.js</span>
                         </div>
                         <div className="detail-year">2024</div>
                       </div>
@@ -98,79 +177,26 @@ const ExpertiseSection = () => {
                         <div className="item-info">
                           <div className="item-title">
                             <FaGithub className="item-icon" />
-                            <h4>Full-Stack Development</h4>
+                            <h4>Web Developer Intern</h4>
                           </div>
-                          <div className="item-subtitle">Modern Web Technologies</div>
+                          <div className="item-subtitle">Bright Soft • Feb 2023 - May 2023</div>
                           <div className="item-description">
-                            Proficient in developing end-to-end applications using modern frameworks, with focus on scalable architecture and best practices.
+                            Contributed to the development of full-stack data dashboards. Engineered scalable user interfaces and automated CI/CD pipelines to accelerate feature delivery.
                           </div>
                         </div>
-                        <div className="verification-badge portfolio">Portfolio</div>
+                        <div className="verification-badge portfolio">Intern</div>
                       </div>
                       <div className="item-details">
                         <div className="detail-tags">
                           <span className="tag">React</span>
-                          <span className="tag">Node.js</span>
+                          <span className="tag">Frontend</span>
                           <span className="tag">APIs</span>
                           <span className="tag">DevOps</span>
                         </div>
-                        <div className="detail-year">2024</div>
+                        <div className="detail-year">2023</div>
                       </div>
                       <div className="expertise-glow"></div>
                     </div>
-                    
-                    <div className="expertise-item">
-                      <div className="item-header">
-                        <div className="item-info">
-                          <div className="item-title">
-                            <FaCloud className="item-icon" />
-                            <h4>Cloud Integration</h4>
-                          </div>
-                          <div className="item-subtitle">Containerization & Deployment</div>
-                          <div className="item-description">
-                            Experience in containerizing applications, implementing CI/CD pipelines, and managing distributed system deployments.
-                          </div>
-                        </div>
-                        <div className="verification-badge">Proficient</div>
-                      </div>
-                      <div className="item-details">
-                        <div className="detail-tags">
-                          <span className="tag">Docker</span>
-                          <span className="tag">Kubernetes</span>
-                          <span className="tag">CI/CD</span>
-                          <span className="tag">Config Management</span>
-                        </div>
-                        <div className="detail-year">2024</div>
-                      </div>
-                      <div className="expertise-glow"></div>
-                    </div>
-    
-                    <div className="expertise-item">
-                      <div className="item-header">
-                        <div className="item-info">
-                          <div className="item-title">
-                            <FaMagic className="item-icon" /> 
-                            <h4>UI/UX Development</h4>
-                          </div>
-                          <div className="item-subtitle">Design Thinking in Team Projects</div>
-                          <div className="item-description">
-                            Applied the full UX process (research → Figma prototyping → testing → iteration) in collaborative projects. Focused on user-centered design, usability testing, and seamless UI integration into functional code.
-                          </div>
-                        </div>
-                        <div className="verification-badge portfolio">Project Experience</div> 
-                      </div>
-                      <div className="item-details">
-                        <div className="detail-tags">
-                          <span className="tag">Figma</span>
-                          <span className="tag">User Testing</span>
-                          <span className="tag">Iterative Design</span>
-                          <span className="tag">Team Collaboration</span>
-                        </div>
-                        <div className="detail-year">2024</div>
-                      </div>
-                      <div className="expertise-glow"></div>
-                    </div>
-            
                   </div>
                 </div>
               </div>
@@ -178,45 +204,45 @@ const ExpertiseSection = () => {
               {/* Professional Recognition */}
               <div className="recognition-section">
                 <div className="recognition-header">
-                  <h3>Professional Recognition</h3>
-                  <p>Academic achievements and project success metrics</p>
+                  <h3>Certifications & Achievements</h3>
+                  <p>Verified professional capabilities</p>
                 </div>
                 
                 <div className="recognition-grid">
                   <div className="recognition-card">
-                    <FaCode className="recognition-icon" />
-                    <div className="recognition-title">Polyvalent</div>
+                    <FaCertificate className="recognition-icon" />
+                    <div className="recognition-title">Anthropic Agent</div>
                     <div className="recognition-description">
-                      Full-stack to AI/ML solutions
+                      Certified Agentic Skills
                     </div>
-                    <div className="recognition-metric">Versatile</div>
+                    <div className="recognition-metric">2025</div>
                   </div>
                   
                   <div className="recognition-card">
-                    <FaGlobe className="recognition-icon" />
-                    <div className="recognition-title">Global</div>
+                    <FaCloud className="recognition-icon" />
+                    <div className="recognition-title">AWS Academy</div>
                     <div className="recognition-description">
-                      Remote collaboration expert
+                      Cloud Foundations Graduate
                     </div>
-                    <div className="recognition-metric">Worldwide</div>
+                    <div className="recognition-metric">2025</div>
                   </div>
                   
                   <div className="recognition-card">
                     <FaBolt className="recognition-icon" />
-                    <div className="recognition-title">Efficient</div>
+                    <div className="recognition-title">Oracle Cloud</div>
                     <div className="recognition-description">
-                      Fast turnaround times
+                      Infrastructure Associate
                     </div>
-                    <div className="recognition-metric">Timely</div>
+                    <div className="recognition-metric">2025</div>
                   </div>
                   
                   <div className="recognition-card">
-                    <FaHandshake className="recognition-icon" />
-                    <div className="recognition-title">Reliable</div>
+                    <FaProjectDiagram className="recognition-icon" />
+                    <div className="recognition-title">AVIATRIX</div>
                     <div className="recognition-description">
-                      Consistent deliverables
+                      Multi-Cloud Networking
                     </div>
-                    <div className="recognition-metric">Trusted</div>
+                    <div className="recognition-metric">2025</div>
                   </div>
                 </div>
               </div>
