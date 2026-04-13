@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
 import { 
   FaEnvelope, FaLinkedin, FaGithub, FaPaperPlane, FaRocket, 
   FaCoffee, FaPhone, FaMapMarkerAlt 
@@ -29,26 +28,17 @@ const ContactSection = ({ activeSection }) => {
     setSubmitStatus(null);
   
     try {
-      const templateParams = {
-        name: formData.name,
-        from_name: formData.name,
-        email: formData.email,
-        inquiry_type: formData.inquiryType,
-        inquiryType: formData.inquiryType,
-        company: formData.company || 'N/A',
-        position: formData.position || 'N/A',
-        projectType: formData.projectType || 'N/A',
-        budget: formData.budget || 'N/A',
-        timeline: formData.timeline || 'N/A',
-        message: formData.message,
-      };
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      await emailjs.send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_8izsisn',
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_cfnj4la',
-        templateParams,
-        process.env.REACT_APP_EMAILJS_USER_ID || 'VT1K8fZDMjUHS2IAA'
-      );
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
   
       setSubmitStatus({
         success: true,

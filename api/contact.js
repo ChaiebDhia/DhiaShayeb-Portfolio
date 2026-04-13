@@ -23,19 +23,17 @@ export default async function handler(req, res) {
     const nodemailer = require('nodemailer');
 
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false, // true for 465, false for other ports
+      service: 'gmail',
       auth: {
-        user: process.env.SMTP_USER, 
-        pass: process.env.SMTP_PASS, 
+        user: process.env.EMAIL_USER, 
+        pass: process.env.EMAIL_PASS, 
       },
     });
 
     // 1. Email to the Website Owner (Dhia)
     const ownerMailOptions = {
-      from: `"Portfolio Contact Form" <${process.env.SMTP_USER}>`,
-      to: process.env.CONTACT_EMAIL || 'dhiashayeb6@gmail.com',
+      from: `"Portfolio Contact Form" <${process.env.EMAIL_USER}>`,
+      to: 'dhiashayeb6@gmail.com',
       replyTo: email,
       subject: `New ${inquiryType === 'recruitment' ? 'Recruitment' : 'Project'} Inquiry from ${name}`,
       html: `
@@ -65,7 +63,7 @@ export default async function handler(req, res) {
 
     // 2. Email to the Sender (Confirmation Receipt)
     const senderMailOptions = {
-      from: `"Dhia Shayeb" <${process.env.SMTP_USER}>`,
+      from: `"Dhia Shayeb" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: `Message Received - Dhia Shayeb`,
       html: `
