@@ -920,3 +920,7 @@ $cyber-gradient: linear-gradient(90deg, $neon-cyan, $neon-pink, $neon-purple, $n
 .project-card {
   height: max-content !important;
 }
+
+.projects-grid-container { align-items: start !important; }
+.project-slide { height: max-content !important; }
+.project-card { height: max-content !important; }
