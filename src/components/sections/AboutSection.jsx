@@ -87,24 +87,33 @@ const AboutSection = () => {
                 </h3>
                 
                 <div className="education-timeline">
-                  {/* ESPRIT */}
                   <div className="education-item">
                     <div className="education-header">
                       <div className="education-icon">
                         <FaMicrochip />
                       </div>
                       <div className="education-title">
-                        <span className="institution">ESPRIT - Private Higher School of Engineering and Technology</span>
-                        <span className="degree">Engineer's Degree, Information Technology</span>
+                        <span className="institution">ESPRIT – École Supérieure Privée d'Ingénierie et de Technologies</span>
+                        <span className="degree">Software Engineering Degree · Intelligent Software Engineering</span>
                       </div>
-                      <div className="education-period">2021 - 2026</div>
+                      <div className="education-period">2023 – 2026</div>
                     </div>
-                    <div className="education-details">
-                      
+                  </div>
+              
+                  <div className="education-item">
+                    <div className="education-header">
+                      <div className="education-icon">
+                        <FaMicrochip />
+                      </div>
+                      <div className="education-title">
+                        <span className="institution">ISIK – Institut Supérieur d'Informatique du Kef</span>
+                        <span className="degree">Bachelor of Science · Software Engineering</span>
+                      </div>
+                      <div className="education-period">2020 – 2023</div>
                     </div>
-                  </div> {/* ✅ closes education-item */}
-                </div> {/* ✅ closes education-timeline */}
-              </div> {/* ✅ closes bio-section education-section */}
+                  </div>
+                </div>
+              </div>
 
               {/* CTA Buttons */}
               <div className="cta-section">
