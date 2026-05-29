@@ -95,6 +95,7 @@ const AboutSection = () => {
                       <div className="education-title">
                         <span className="institution">ESPRIT – École Supérieure Privée d'Ingénierie et de Technologies</span>
                         <span className="degree">Software Engineering Degree · Intelligent Software Engineering</span>
+                        <span className="degree">EUR-ACE Accredited · BAC+5 Equivalent</span>
                       </div>
                       <div className="education-period">2023 – 2026</div>
                     </div>
